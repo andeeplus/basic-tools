@@ -1,10 +1,9 @@
 import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from 'src/components/Spinner';
-import { InnerButton } from './style';
 import Icon from 'src/components/Icon';
 import Text from 'src/components/Text';
-import { fontWeight } from 'styled-system';
+import { InnerButton } from './style';
 
 const Button = forwardRef(
   (
@@ -16,7 +15,6 @@ const Button = forwardRef(
       children,
       disabled,
       loading,
-      mainColor,
       ...props
     },
     ref
@@ -32,7 +30,6 @@ const Button = forwardRef(
         as={as}
         ref={ref}
         variant={variant}
-        mainColor={mainColor}
         onClick={onClick}
         disabled={disabled || loading}
         {...props}

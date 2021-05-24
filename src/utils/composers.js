@@ -51,4 +51,4 @@ const composers = {
   text: compose(typography, color, space, layout, position, flexbox, customTextProps)
 };
 
-export default composers
+export default composers;

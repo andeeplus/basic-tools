@@ -3,13 +3,13 @@ const text = (props) => ({
   color: props.color !== 'white' ? props.color : props.theme.colors.black,
   fill: props.color !== 'white' ? props.color : props.theme.colors.black,
   '&:hover': {
-    bg: 'gray.2',
+    bg: 'gray.2'
   },
   '&:disabled': {
     color: 'gray.4',
     fill: 'gray.4',
-    boxShadow: 'none',
-  },
-})
+    boxShadow: 'none'
+  }
+});
 
-export default text
+export default text;

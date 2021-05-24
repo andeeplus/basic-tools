@@ -1,100 +1,99 @@
-import React from 'react'
-import { cleanup, getByText } from '@testing-library/react'
-import theme from 'src/styles/theme'
-import Button from 'src/components/Button'
-import { renderWithTheme } from '../../private/test-utils/renderWithTheme'
-import iconPaths from '../Icon/paths'
+import React from 'react';
+import { cleanup } from '@testing-library/react';
+import theme from 'src/styles/theme';
+import Button from 'src/components/Button';
+import { renderWithTheme } from '../../private/test-utils/renderWithTheme';
 
-const buttonText = 'Click'
+const buttonText = 'Click';
 
 describe('Button Component', () => {
-  afterEach(() => cleanup())
+  afterEach(() => cleanup());
 
   it('renders correctly if variant is "filled"', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="filled">
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
     expect(getByTestId('button')).toHaveStyle({
       backgroundColor: theme.colors.black,
-      color: theme.colors.white,
-    })
-  })
+      color: theme.colors.white
+    });
+  });
 
   it('renders correctly if variant is "outlined"', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="outlined" bg="red.5">
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
     expect(getByTestId('button')).toHaveStyle({
       borderColor: theme.colors.red[5],
       backgroundColor: 'transparent',
-      color: theme.colors.red[5],
-    })
-  })
+      color: theme.colors.red[5]
+    });
+  });
 
   it('renders correctly if variant is "text"', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="text">
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
     expect(getByTestId('button')).toHaveStyle({
       backgroundColor: 'transparent',
-      color: theme.colors.black,
-    })
-  })
+      color: theme.colors.black
+    });
+  });
 
   it('renders correctly if it is an icon', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="filled" icon="arrowDown">
         {buttonText}
-      </Button>,
-    )
-    expect(getByTestId('bt__svg-icon')).toBeInTheDocument()
-  })
+      </Button>
+    );
+    expect(getByTestId('bt__svg-icon')).toBeInTheDocument();
+  });
 
   it('renders correctly if button is disabled', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="filled" disabled>
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
     expect(getByTestId('button')).toHaveStyle({
-      opacity: 0.45,
-    })
-  })
+      opacity: 0.45
+    });
+  });
 
   it('renders correctly if button color is custom', () => {
     const { getByTestId } = renderWithTheme(
       <Button data-testid="button" variant="filled" bg="red.5" color="white">
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
     expect(getByTestId('button')).toHaveStyle({
-      backgroundColor: theme.colors.red[5],
-    })
-  })
+      backgroundColor: theme.colors.red[5]
+    });
+  });
 
   it('renders correctly the text', () => {
-    const { getByText } = renderWithTheme(
+    renderWithTheme(
       <Button data-testid="button" variant="filled" bg="red.5" color="white">
         {buttonText}
-      </Button>,
-    )
-    expect(getByText(buttonText)).toBeInTheDocument()
-  })
+      </Button>
+    );
+    expect(screen.getByText(buttonText)).toBeInTheDocument();
+  });
 
   it('renders the spinner if loading', () => {
     const { getByTestId, queryByText } = renderWithTheme(
       <Button data-testid="button" variant="filled" loading>
         {buttonText}
-      </Button>,
-    )
+      </Button>
+    );
 
-    expect(queryByText(buttonText)).toBeNull()
-    expect(getByTestId('bt__spinner')).toBeInTheDocument()
-  })
-})
+    expect(queryByText(buttonText)).toBeNull();
+    expect(getByTestId('bt__spinner')).toBeInTheDocument();
+  });
+});

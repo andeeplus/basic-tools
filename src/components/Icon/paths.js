@@ -182,9 +182,3 @@ const iconPaths = {
 };
 
 export default iconPaths;
-
-const getStories = Object.keys(iconPaths).map(
-  (icon) => `<Story name="${icon}">
-    <Icon  icon="${icon}" />
-  </Story>`
-);

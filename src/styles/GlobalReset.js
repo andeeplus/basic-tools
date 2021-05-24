@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalReset = createGlobalStyle`
   *,
@@ -73,6 +73,6 @@ const GlobalReset = createGlobalStyle`
   html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-`
+`;
 
-export default GlobalReset
+export default GlobalReset;

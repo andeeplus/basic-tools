@@ -10,8 +10,8 @@ import {
   shadow,
   typography,
   grid,
-  system,
-} from 'styled-system'
+  system
+} from 'styled-system';
 
 const customTextProps = system({
   cursor: { property: 'cursor' },
@@ -23,15 +23,15 @@ const customTextProps = system({
   whiteSpace: { property: 'whiteSpace' },
   textTransform: { property: 'textTransform' },
   letterSpacing: { property: 'letterSpacing' },
-  wordBreak: { property: 'wordBreak' },
-})
+  wordBreak: { property: 'wordBreak' }
+});
 
 const customBoxProps = system({
   boxSizing: { property: 'boxSizing' },
   pointerEvents: { property: 'pointerEvents' },
   transform: { property: 'transform' },
-  transition: { property: 'transition' },
-})
+  transition: { property: 'transition' }
+});
 
 const composers = {
   box: compose(
@@ -46,17 +46,9 @@ const composers = {
     typography,
     grid,
     customTextProps,
-    customBoxProps,
+    customBoxProps
   ),
-  text: compose(
-    typography,
-    color,
-    space,
-    layout,
-    position,
-    flexbox,
-    customTextProps,
-  ),
-}
+  text: compose(typography, color, space, layout, position, flexbox, customTextProps)
+};
 
-export default composers
+export default composers;

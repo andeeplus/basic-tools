@@ -1,5 +1,5 @@
 import baseTheme from './baseTheme';
-import {themeColors} from './colorsPalette';
+import { themeColors } from './colorsPalette';
 
 const theme = {
   ...baseTheme,

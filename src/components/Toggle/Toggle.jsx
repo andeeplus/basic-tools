@@ -1,31 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import composers from 'src/styles/utils/composers'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import composers from 'src/styles/utils/composers';
 
-const Toggle = ({ onChange, ...props }) => {
-  return (
-    <CheckBoxWrapper {...props}>
-      <CheckBox id="checkbox" type="checkbox" onChange={onChange} />
-      <CheckBoxLabel htmlFor="checkbox" />
-    </CheckBoxWrapper>
-  )
-}
+const Toggle = ({ onChange, ...props }) => (
+  <CheckBoxWrapper {...props}>
+    <CheckBox id="checkbox" type="checkbox" onChange={onChange} />
+    <CheckBoxLabel htmlFor="checkbox" />
+  </CheckBoxWrapper>
+);
 
 Toggle.propTypes = {
-  onChange: PropTypes.func,
-}
+  onChange: PropTypes.func
+};
 
 const CheckBoxWrapper = styled.div`
   position: relative;
   ${composers.box}
-`
+`;
 
 CheckBoxWrapper.defaultProps = {
   position: 'relative',
   width: '42px',
-  m: 2,
-}
+  m: 2
+};
 
 const CheckBoxLabel = styled.label`
   cursor: pointer;
@@ -41,7 +39,7 @@ const CheckBoxLabel = styled.label`
     transition: 0.2s;
   }
   ${composers.box}
-`
+`;
 
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
@@ -50,8 +48,8 @@ CheckBoxLabel.defaultProps = {
   width: '42px',
   height: '24px',
   borderRadius: '15px',
-  bg: 'gray.3',
-}
+  bg: 'gray.3'
+};
 
 const CheckBox = styled.input`
   &:checked + ${CheckBoxLabel} {
@@ -66,7 +64,7 @@ const CheckBox = styled.input`
       transition: 0.2s;
     }
   }
-`
+`;
 
 CheckBox.defaultProps = {
   opacity: 0,
@@ -74,7 +72,7 @@ CheckBox.defaultProps = {
   width: '24px',
   height: '20px',
   borderRadius: '15px',
-  bg: 'gray.1',
-}
+  bg: 'gray.1'
+};
 
-export default Toggle
+export default Toggle;

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { typography } from 'styled-system'
-import composers from 'src/styles/utils/composers'
-import { enhancedHover } from './utils'
-import { variantProp } from './variants'
+import styled from 'styled-components';
+import { typography } from 'styled-system';
+import composers from 'src/styles/utils/composers';
+import { enhancedHover } from './utils';
+import { variantProp } from './variants';
 
 export const InnerButton = styled.button`
   &:disabled {
@@ -12,7 +12,7 @@ export const InnerButton = styled.button`
   ${typography}
   ${composers.box}
   ${(props) => variantProp(props)}
-`
+`;
 
 InnerButton.defaultProps = {
   px: 2,
@@ -29,5 +29,5 @@ InnerButton.defaultProps = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  m: 2,
-}
+  m: 2
+};

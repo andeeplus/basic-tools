@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Box from '../components/Box';
+
+<Meta title="Components/Box" component={Box} />
+
+# Box Component
+
+Based on a div it's the building block of the system.
+Please refer to [Styled System Props](https://styled-system.com/api)
+
+<Canvas>
+  <Story name="default box">{() => <Box children="Default" />}</Story>
+  <Story name="coloured box">
+    {() => <Box color="blue.5" children="Box with custom color" />}
+  </Story>
+  <Story name="bordered box">
+    {() => (
+      <Box
+        border="solid 5px"
+        borderColor="blue.5"
+        bg="yellow.5"
+        color="red.5"
+        children="Full optional"
+        p={4}
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Box} />

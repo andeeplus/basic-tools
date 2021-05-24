@@ -6,8 +6,8 @@ const text = (props) => ({
     bg: 'gray.2',
   },
   '&:disabled': {
-    color: 'gray.2',
-    fill: 'gray.2',
+    color: 'gray.4',
+    fill: 'gray.4',
     boxShadow: 'none',
   },
 })

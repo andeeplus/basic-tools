@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import InputField from '../components/InputField';
+
+<Meta title="Components/InputField" component={InputField} />
+
+# InputField Component
+
+Super simple input field
+
+<Canvas>
+  <Story name="default InputField">{() => <InputField />}</Story>
+  <Story name="disabled InputField">{() => <InputField disabled />}</Story>
+</Canvas>
+
+<ArgsTable of={InputField} />

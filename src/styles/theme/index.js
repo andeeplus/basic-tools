@@ -1,15 +1,9 @@
-import { generateDynamicColors } from '../utils/theme'
-import themeColors from './colors'
-import common from './common'
-
-const colors = {
-  ...themeColors,
-  ...generateDynamicColors(themeColors),
-}
+import baseTheme from './baseTheme';
+import {themeColors} from './colorsPalette';
 
 const theme = {
-  ...common,
-  colors
-}
+  ...baseTheme,
+  colors: themeColors
+};
 
-export default theme
+export default theme;

@@ -1,4 +1,4 @@
-const common = {
+const baseTheme = {
   borderWidths: [0, '3px'],
   breakpoints: ['444px', '768px', '1080px', '1640px'],
 
@@ -8,7 +8,7 @@ const common = {
     title:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
   },
-  fontSizes: ['10px', '12px', '14px', '16px', '20px', '24px', '30px', '40px'],
+  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28x', '34px', '40px', '48px'],
   fontWeights: {
     light: 100,
     normal: 400,
@@ -44,4 +44,4 @@ const common = {
   ],
 }
 
-export default common
+export default baseTheme

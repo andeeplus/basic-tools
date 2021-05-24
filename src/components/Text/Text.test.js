@@ -19,7 +19,7 @@ describe('Text Component', () => {
 
   it('renders the component with the right variant', () => {
     renderWithTheme(
-      <Text variant="title-lg" ellipsis={2}>
+      <Text variant="title.lg" ellipsis={2}>
         {largeText}
       </Text>,
     )

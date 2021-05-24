@@ -24,7 +24,7 @@ describe('Button Component', () => {
 
   it('renders correctly if variant is "outlined"', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="outlined" color="red.5">
+      <Button data-testid="button" variant="outlined" bg="red.5">
         {buttonText}
       </Button>,
     )
@@ -63,7 +63,7 @@ describe('Button Component', () => {
       </Button>,
     )
     expect(getByTestId('button')).toHaveStyle({
-      opacity: 0.65,
+      opacity: 0.45,
     })
   })
 

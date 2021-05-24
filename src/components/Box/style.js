@@ -7,7 +7,8 @@ const Box = styled.div`
 
 Box.defaultProps = {
   display: 'flex',
-  position: 'relative'
+  position: 'relative',
+  fontFamily: 'normal'
 };
 
 Box.displayName = 'Box';

@@ -23,6 +23,7 @@ Text.defaultProps = {
   variant: 'paragraph',
   width: 'fit-content',
   transition: 'all 0.1s ease-in',
+  fontFamily: 'normal'
 }
 
 export default Text

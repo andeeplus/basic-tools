@@ -19,7 +19,7 @@ InnerButton.defaultProps = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   cirsor: 'pointer',
-  transition: 'all ease-in 0.25s',
+  transition: 'all ease-in 0.15s',
   lineHeight: '16px',
   letterSpacing: '0.5',
   textAlign: 'center',

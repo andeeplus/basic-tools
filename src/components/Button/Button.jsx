@@ -1,9 +1,10 @@
-import React, { forwardRef, useMemo } from 'react'
-import PropTypes from 'prop-types'
-import Spinner from 'src/components/Spinner'
-import { InnerButton } from './style'
-import Icon from 'src/components/Icon'
-import Text from 'src/components/Text'
+import React, { forwardRef, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import Spinner from 'src/components/Spinner';
+import { InnerButton } from './style';
+import Icon from 'src/components/Icon';
+import Text from 'src/components/Text';
+import { fontWeight } from 'styled-system';
 
 const Button = forwardRef(
   (
@@ -18,13 +19,13 @@ const Button = forwardRef(
       mainColor,
       ...props
     },
-    ref,
+    ref
   ) => {
     const buttonContent = useMemo(() => {
-      if (loading) return <Spinner size={18} color="gray.2" />
-      if (icon) return <Icon icon={icon} size={18} fill="gray.0" />
-      return <Text variant="p">{children}</Text>
-    }, [children, icon, loading])
+      if (loading) return <Spinner size={18} color="gray.2" />;
+      if (icon) return <Icon icon={icon} fill="gray.0" />;
+      return <Text variant="p">{children}</Text>;
+    }, [children, icon, loading]);
 
     return (
       <InnerButton
@@ -38,30 +39,33 @@ const Button = forwardRef(
       >
         {buttonContent}
       </InnerButton>
-    )
-  },
-)
+    );
+  }
+);
 
 Button.defaultProps = {
   variant: 'filled',
   bg: 'black',
   color: 'white',
-}
+  fontFamily: 'title',
+  fontWeight: 500,
+  cursor: 'pointer'
+};
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';
 
 Button.propTypes = {
   as: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
+    PropTypes.node
   ]),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   variant: PropTypes.string,
   loading: PropTypes.bool,
-  icon: PropTypes.string,
-}
+  icon: PropTypes.string
+};
 
-export default Button
+export default Button;

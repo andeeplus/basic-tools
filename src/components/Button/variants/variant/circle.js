@@ -1,14 +1,14 @@
 const circle = (props) => ({
   fill: props.color,
-  minWidth: '32px',
-  width: '32px',
-  height: '32px',
+  minWidth: '40px',
+  width: '40px',
+  height: '40px',
   borderRadius: '50%',
   '&:hover': {
     boxShadow: 'medium'
   },
   '&:disabled': {
-    opacity: 0.65,
+    opacity: 0.45,
     boxShadow: 'none'
   }
 });

@@ -4,7 +4,7 @@ const filled = (props) => ({
     boxShadow: 'medium'
   },
   '&:disabled': {
-    opacity: 0.65,
+    opacity: 0.45,
     boxShadow: 'none'
   }
 });

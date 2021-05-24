@@ -1,21 +1,25 @@
 const outlined = (props) => ({
-  fill: props.color,
+  color: props.bg,
+  fill: props.bg,
   bg: 'transparent',
   borderStyle: 'solid',
   borderWidth: '2px',
-  borderColor: props.color,
+  borderColor: props.bg,
   display: 'flex',
   '&:hover': {
-    bg: props.color,
+    bg: props.bg,
+    color: props.color,
+    fill: props.color,
+    borderColor: props.bg,
     boxShadow: 'medium',
     color: 'white',
     fill: 'white'
   },
   '&:disabled': {
     bg: 'transparent',
-    borderColor: 'gray.2',
-    color: 'gray.2',
-    fill: 'gray.2',
+    borderColor: 'gray.4',
+    color: 'gray.4',
+    fill: 'gray.4',
     boxShadow: 'none'
   }
 });

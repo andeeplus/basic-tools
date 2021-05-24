@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Drawer } from '../components';
+import DrawerPlayground from './playground/Drawer.jsx';
+
+<Meta title="Components/Drawer" component={Drawer} />
+
+# Drawer
+
+A drawer is a convenient way to present information such as notifications or context-sensitive help.
+Use a drawer for secondary content which only needs to appear when specifically requested by users.
+
+<Canvas>
+  <Story name="drawers">
+    <DrawerPlayground />
+  </Story>
+</Canvas>

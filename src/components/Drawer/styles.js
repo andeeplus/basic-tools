@@ -38,7 +38,7 @@ export const DrawerContent = styled(Box)`
 DrawerContent.defaultProps = {
   maxWidth: '100%',
   bg: 'white',
-  boxShadow: '12px 0px 10px rgba(0, 0, 0, 0.19)',
+  boxShadow: 'md',
   color: 'black',
   overflowX: 'hidden',
   overflowY: 'auto',

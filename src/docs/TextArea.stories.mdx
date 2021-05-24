@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import TextArea from '../components/TextArea';
+
+<Meta title="Components/TextArea" component={TextArea} />
+
+# TextArea Component
+
+Super simple textarea field
+
+<Canvas>
+  <Story name="default TextArea">{() => <TextArea rows="8" />}</Story>
+  <Story name="disabled TextArea">{() => <TextArea disabled />}</Story>
+</Canvas>
+
+<ArgsTable of={TextArea} />

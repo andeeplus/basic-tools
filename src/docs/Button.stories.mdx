@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Button, Icon } from '../components';
+
+<Meta title={`Components/Button`} component={Button} />
+
+# Button
+
+## Variant Filled
+
+<Canvas>
+  <Story name="default">
+    <Button bg="blue.7" variant="filled">
+      Filled
+    </Button>
+  </Story>
+  <Story name="disabled-default">
+    <Button bg="blue.7" variant="filled" disabled>
+      Disabled Default
+    </Button>
+  </Story>
+</Canvas>
+
+## Variant Outlined
+
+<Canvas>
+  <Story name="outlined">
+    <Button bg="blue.7" variant="outlined">
+      Outlined
+    </Button>
+  </Story>
+  <Story name="disabled-outlined">
+    <Button bg="blue.7" variant="outlined" disabled>
+      Disabled Outlined
+    </Button>
+  </Story>
+</Canvas>
+
+## Variant Outlined
+
+<Canvas>
+  <Story name="text">
+    <Button bg="blue.7" variant="text">
+      Text Button
+    </Button>
+  </Story>
+  <Story name="disabled-text">
+    <Button bg="blue.7" variant="text" disabled>
+      Disabled Text Button
+    </Button>
+  </Story>
+</Canvas>
+
+## Variant circle + Icon
+
+<Canvas>
+  <Story name="circle-icon">
+    <Button bg="blue.7" variant="circle" icon="scratch" />
+  </Story>
+  <Story name="circle-icon-disabled">
+    <Button bg="blue.7" variant="circle" icon="scratch" disabled />
+  </Story>
+</Canvas>
+
+## Variant Squared + Icon
+
+<Canvas>
+  <Story name="squared-icon">
+    <Button bg="blue.7" variant="squared" icon="scratch" />
+  </Story>
+  <Story name="squared-icon-disabled">
+    <Button bg="blue.7" variant="squared" icon="scratch" disabled />
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={Button} />

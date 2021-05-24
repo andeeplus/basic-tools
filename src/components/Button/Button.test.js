@@ -78,12 +78,12 @@ describe('Button Component', () => {
   });
 
   it('renders correctly the text', () => {
-    renderWithTheme(
+    const { getByText } = renderWithTheme(
       <Button data-testid="button" variant="filled" bg="red.5" color="white">
         {buttonText}
       </Button>
     );
-    expect(screen.getByText(buttonText)).toBeInTheDocument();
+    expect(getByText(buttonText)).toBeInTheDocument();
   });
 
   it('renders the spinner if loading', () => {

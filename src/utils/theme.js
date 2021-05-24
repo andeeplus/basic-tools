@@ -1,4 +1,4 @@
-import { colorsPalette } from 'src/styles/theme';
+import { colorsPalette } from 'src';
 
 export const getRandomElementFromArray = (array) =>
   array[Math.floor(Math.random() * array.length)];

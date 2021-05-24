@@ -1,4 +1,4 @@
-/*eslint no-dupe-keys: "error"*/
+/* eslint-disable no-dupe-keys */
 const outlined = (props) => ({
   color: props.bg,
   fill: props.bg,

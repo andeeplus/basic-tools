@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import composers from 'src/styles/utils/composers';
 
 export const StyledSpinner = styled.svg`

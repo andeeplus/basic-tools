@@ -1,0 +1,73 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Box from '../../components/Box';
+
+<Meta title="Theme/Shadows" component={Box} />
+
+# Theme Shadows
+
+Theme shadows can be passed to any components using the prop `boxShadow`
+
+<Canvas>
+  <Story name="xs shadow">
+    {() => (
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        size={100}
+        bg="gray.2"
+        boxShadow="xs"
+        children="xs"
+      />
+    )}
+  </Story>
+  <Story name="sm shadow">
+    {() => (
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        size={100}
+        bg="gray.3"
+        boxShadow="sm"
+        children="sm"
+      />
+    )}
+  </Story>
+  <Story name="md shadow">
+    {() => (
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        size={100}
+        boxShadow="md"
+        bg="gray.4"
+        children="md"
+      />
+    )}
+  </Story>
+  <Story name="lg shadow">
+    {() => (
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        size={100}
+        boxShadow="lg"
+        bg="gray.5"
+        children="lg"
+      />
+    )}
+  </Story>
+  <Story name="xl shadow">
+    {() => (
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        size={100}
+        boxShadow="xl"
+        bg="gray.6"
+        children="xl"
+      />
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Box} />

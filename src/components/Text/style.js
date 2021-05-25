@@ -14,9 +14,9 @@ const ellipsis = (props) =>
 
 const Text = styled.span`
   ${ellipsis};
+  ${variant({ variants: textVariants })}
   ${composers.text};
   ${composers.box};
-  ${variant({ variants: textVariants })}
 `;
 
 Text.defaultProps = {

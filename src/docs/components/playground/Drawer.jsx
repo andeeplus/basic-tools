@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Drawer, Box, Button, Text } from '../../components';
+import { Drawer, Box, Button, Text } from '../../../components';
 
 const positions = ['top', 'bottom', 'left', 'right', 'custom-top'];
 

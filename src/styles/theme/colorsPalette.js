@@ -1,8 +1,6 @@
 import { generateDynamicColors } from 'src/styles/utils/theme';
 
 export const colorsPalette = {
-  black: '#1b1f23',
-  white: '#fff',
   gray: [
     '#fafbfc',
     '#f6f8fa',
@@ -99,6 +97,8 @@ export const colorsPalette = {
     '#99306f',
     '#6d224f'
   ],
+  black: '#1b1f23',
+  white: '#fff',
   blackfade15: 'rgba(27, 31, 35, 0.15)',
   blackfade20: 'rgba(27, 31, 35, 0.20)',
   blackfade30: 'rgba(27,31,35,0.3)',

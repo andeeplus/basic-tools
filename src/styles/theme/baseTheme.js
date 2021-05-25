@@ -8,7 +8,7 @@ const baseTheme = {
     title:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
   },
-  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28x', '34px', '40px', '48px'],
+  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28px', '34px', '40px', '48px'],
   fontWeights: {
     light: 100,
     regular: 400,

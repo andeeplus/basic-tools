@@ -69,12 +69,15 @@ const title = {
     fontFamily: 'title',
     fontSize: [theme.fontSizes[6], theme.fontSizes[7]],
     fontWeight: theme.fontWeights.bold,
-    lineHeight: '1.7'
+    lineHeight: `${theme.fontSizes[7]}`,
+    mb: 2
   },
   default: {
     fontFamily: 'title',
     fontSize: theme.fontSizes[6],
-    fontWeight: theme.fontWeights.semibold
+    fontWeight: theme.fontWeights.semibold,
+    lineHeight: `${theme.fontSizes[6]}`,
+    mb: 2
   },
   sm: {
     fontFamily: 'title',
@@ -85,32 +88,34 @@ const title = {
       theme.fontSizes[5]
     ],
     fontWeight: theme.fontWeights.semibold,
-    lineHeight: '1.6'
+    lineHeight: `${theme.fontSizes[4]}`,
+    mb: 2
   },
   xs: {
     fontFamily: 'title',
     fontSize: theme.fontSizes[3],
     fontWeight: theme.fontWeights.semibold,
-    lineHeight: '1.5'
+    lineHeight: `${theme.fontSizes[3]}`,
+    mb: 1
   }
 };
 
 const p = {
   lg: {
     fontSize: theme.fontSizes[3],
-    lineHeight: '1.3'
+    lineHeight: theme.fontSizes[3]
   },
   default: {
     fontSize: theme.fontSizes[2],
-    lineHeight: '1.5'
+    lineHeight: theme.fontSizes[2]
   },
   sm: {
     fontSize: theme.fontSizes[1],
-    lineHeight: '1.3'
+    lineHeight: theme.fontSizes[1]
   },
   xs: {
     fontSize: theme.fontSizes[0],
-    lineHeight: '1.3'
+    lineHeight: theme.fontSizes[0]
   }
 };
 

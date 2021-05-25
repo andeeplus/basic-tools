@@ -25,7 +25,7 @@ describe('Text Component', () => {
 
     expect(screen.getByText(largeText)).toHaveStyle(`
       font-weight: ${theme.fontWeights.bold};
-      line-height: 1.7;
+      line-height: 40px;
     `);
   });
 

@@ -54,8 +54,8 @@ const DrawerStory = () => {
                 : {})}
             >
               <Box flexDirection="column" p={3}>
-                <Text variant="title">{`This is a ${position} drawer`}</Text>
-                <Text variant="paragraph">{getSpecificInfoText(position)}</Text>
+                <Text variant="title.lg">{`This is a ${position} drawer`}</Text>
+                <Text variant="p.default">{getSpecificInfoText(position)}</Text>
               </Box>
             </Drawer>
           );

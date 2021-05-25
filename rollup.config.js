@@ -1,9 +1,8 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve, { nodeResolve } from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import packageJSON from './package.json';
 
@@ -25,7 +24,7 @@ export default [
     plugins: [
       babel({
         babelrc: false,
-        runtimeHelpers: true,
+        babelHelpers: 'bundled',
         exclude: 'node_modules/**',
         presets: ['@babel/preset-env', '@babel/preset-react'],
         plugins: [['module-resolver', { root: ['./'] }], 'babel-plugin-styled-components']
@@ -52,7 +51,7 @@ export default [
     plugins: [
       babel({
         babelrc: false,
-        runtimeHelpers: true,
+        babelHelpers: 'bundled',
         exclude: 'node_modules/**',
         presets: ['@babel/preset-env', '@babel/preset-react'],
         plugins: [['module-resolver', { root: ['./'] }], 'babel-plugin-styled-components']

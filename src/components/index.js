@@ -7,5 +7,5 @@ export { default as Overlay } from './Overlay';
 export { default as Spinner } from './Spinner';
 export { default as TabPanel } from './TabPanel';
 export { default as Text } from './Text';
-export { default as Toggle } from './Text';
+export { default as Toggle } from './Toggle';
 export { default as TextArea } from './TextArea';

@@ -258,8 +258,8 @@ var composers$1 = {
   text: styledSystem.compose(styledSystem.typography, styledSystem.color, styledSystem.space, styledSystem.layout, styledSystem.position, styledSystem.flexbox, customTextProps$1)
 };
 
-var _templateObject$8;
-var Box = styled__default['default'].div(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
+var _templateObject$9;
+var Box = styled__default['default'].div(_templateObject$9 || (_templateObject$9 = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
 Box.defaultProps = {
   display: 'flex',
   position: 'relative',
@@ -1349,13 +1349,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 var PropTypes = propTypes.exports;
 
-var _templateObject$7, _templateObject2$1;
-var StyledSpinner = styled__default['default'].svg(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers$1.box);
+var _templateObject$8, _templateObject2$2;
+var StyledSpinner = styled__default['default'].svg(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers$1.box);
 StyledSpinner.defaultProps = {
   m: 0,
   p: 0
 };
-var StyledCircle = styled__default['default'].circle(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteral(["\n  stroke-linecap: round;\n  animation: dash 1.5s ease-in-out infinite;\n  ", "\n"])), composers$1.box);
+var StyledCircle = styled__default['default'].circle(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteral(["\n  stroke-linecap: round;\n  animation: dash 1.5s ease-in-out infinite;\n  ", "\n"])), composers$1.box);
 StyledCircle.defaultProps = {
   cx: '25',
   cy: '25',
@@ -1719,13 +1719,13 @@ var textVariants = {
   link: link
 };
 
-var _templateObject$6;
+var _templateObject$7;
 
 var ellipsis = function ellipsis(props) {
   return props.ellipsis && "\n    display: -webkit-box;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: ".concat(props.ellipsis, ";\n  ");
 };
 
-var Text = styled__default['default'].span(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.variant({
+var Text = styled__default['default'].span(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.variant({
   variants: textVariants
 }), composers$1.text, composers$1.box);
 Text.defaultProps = {
@@ -1841,8 +1841,8 @@ var type = function type(props) {
   });
 };
 
-var _templateObject$5;
-var InnerButton = styled__default['default'].button(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), enhancedHover, styledSystem.typography, composers$1.box, function (props) {
+var _templateObject$6;
+var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), enhancedHover, styledSystem.typography, composers$1.box, function (props) {
   return type(props);
 });
 InnerButton.defaultProps = {
@@ -1944,14 +1944,14 @@ var defaultPlacements = {
   }
 };
 
-var _templateObject$4, _templateObject2;
+var _templateObject$5, _templateObject2$1;
 /* https://github.com/GoogleChrome/lighthouse/issues/10908 
   In the home-next I noticed an issue with lighthouse regarding the visibility of the drawer content.
   I'm going to remove this comment once everything will be tested in front.
   display: ${(props) => (props.open ? 'block' : 'none')};
 */
 
-var DrawerWrapper = styled__default['default'](Box)(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  display: block;\n  transform: ", ";\n"])), function (props) {
+var DrawerWrapper = styled__default['default'](Box)(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteral(["\n  display: block;\n  transform: ", ";\n"])), function (props) {
   return !props.open ? transforms[props.side] : null;
 });
 DrawerWrapper.displayName = 'DrawerWrapper';
@@ -1959,7 +1959,7 @@ DrawerWrapper.defaultProps = {
   zIndices: 'drawer',
   width: '100%'
 };
-var DrawerContent = styled__default['default'](Box)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: block;\n  box-sizing: border-box;\n  ", "\n  height: ", ";\n  ", "\n  z-index: 7;\n  transform: ", ";\n  transition: transform 0.2s ease-out;\n"])), function (props) {
+var DrawerContent = styled__default['default'](Box)(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteral(["\n  display: block;\n  box-sizing: border-box;\n  ", "\n  height: ", ";\n  ", "\n  z-index: 7;\n  transform: ", ";\n  transition: transform 0.2s ease-out;\n"])), function (props) {
   return props.placements[props.side];
 }, function (props) {
   return (props.side === 'top' || props.side === 'bottom') && props.size ? props.size : '100%';
@@ -2016,8 +2016,8 @@ Drawer.propTypes = {
 };
 var Drawer$1 = /*#__PURE__*/React.memo(Drawer);
 
-var _templateObject$3;
-var InputField$1 = styled__default['default'].input(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers$1.text, composers$1.box, function (_ref) {
+var _templateObject$4;
+var InputField$1 = styled__default['default'].input(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers$1.text, composers$1.box, function (_ref) {
   var theme = _ref.theme;
   return "\n    &:focus {\n      border-color:".concat(theme.colors.blue[5], ";\n      background:").concat(theme.colors.blue[0], ";\n    }\n    &:active {\n      border-color:").concat(theme.colors.blue[5], ";\n    }\n    &:disabled {\n      border-color:").concat(theme.colors.gray[4], ";\n      background:").concat(theme.colors.gray[0], ";\n    }\n  ");
 });
@@ -2052,8 +2052,8 @@ InputField.propTypes = {
   label: PropTypes.string
 };
 
-var _templateObject$2;
-var StyledOverlay = styled__default['default'](Box)(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  transition: height 0.3s ease-out;\n"])));
+var _templateObject$3;
+var StyledOverlay = styled__default['default'](Box)(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  transition: height 0.3s ease-out;\n"])));
 StyledOverlay.defaultProps = {
   zIndex: 5,
   position: 'fixed',
@@ -2134,6 +2134,54 @@ var TabSwitcher = function TabSwitcher(_ref3) {
 TabSwitcher.propTypes = {
   children: PropTypes.node,
   defaultTab: PropTypes.string
+};
+
+var _templateObject$2, _templateObject2, _templateObject3;
+
+var Toggle = function Toggle(_ref) {
+  var onChange = _ref.onChange,
+      props = _objectWithoutProperties(_ref, ["onChange"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(CheckBoxWrapper, props, /*#__PURE__*/React__default['default'].createElement(CheckBox, {
+    id: "checkbox",
+    type: "checkbox",
+    onChange: onChange
+  }), /*#__PURE__*/React__default['default'].createElement(CheckBoxLabel, {
+    htmlFor: "checkbox"
+  }));
+};
+
+Toggle.propTypes = {
+  onChange: PropTypes.func
+};
+var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n"])), composers$1.box);
+CheckBoxWrapper.defaultProps = {
+  position: 'relative',
+  width: '42px',
+  m: 2
+};
+var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  &::after {\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);\n    transition: 0.2s;\n  }\n  ", "\n"])), function (props) {
+  return props.theme.colors.gray[6];
+}, composers$1.box);
+CheckBoxLabel.defaultProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '42px',
+  height: '24px',
+  borderRadius: '15px',
+  bg: 'gray.3'
+};
+var CheckBox = styled__default['default'].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  &:checked + ", " {\n    background: ", ";\n    &::after {\n      content: '';\n      display: block;\n      border-radius: 50%;\n      width: 16px;\n      height: 16px;\n      margin-left: 21px;\n      transition: 0.2s;\n    }\n  }\n"])), CheckBoxLabel, function (props) {
+  return props.theme.mode[props.theme.type].body.text;
+});
+CheckBox.defaultProps = {
+  opacity: 0,
+  zIndex: 1,
+  width: '24px',
+  height: '20px',
+  borderRadius: '15px',
+  bg: 'gray.1'
 };
 
 var _templateObject$1;
@@ -2266,7 +2314,7 @@ exports.Spinner = Spinner;
 exports.TabPanel = TabSwitcher;
 exports.Text = Text;
 exports.TextArea = TextArea;
-exports.Toggle = Text;
+exports.Toggle = Toggle;
 exports.baseTheme = baseTheme;
 exports.colorsPalette = colorsPalette;
 exports.composers = composers;

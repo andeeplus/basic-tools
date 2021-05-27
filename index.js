@@ -258,8 +258,8 @@ var composers$1 = {
   text: styledSystem.compose(styledSystem.typography, styledSystem.color, styledSystem.space, styledSystem.layout, styledSystem.position, styledSystem.flexbox, customTextProps$1)
 };
 
-var _templateObject$9;
-var Box = styled__default['default'].div(_templateObject$9 || (_templateObject$9 = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
+var _templateObject$a;
+var Box = styled__default['default'].div(_templateObject$a || (_templateObject$a = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
 Box.defaultProps = {
   display: 'flex',
   position: 'relative',
@@ -1349,8 +1349,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var PropTypes = propTypes.exports;
 
-var _templateObject$8, _templateObject2$2;
-var StyledSpinner = styled__default['default'].svg(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers$1.box);
+var _templateObject$9, _templateObject2$2;
+var StyledSpinner = styled__default['default'].svg(_templateObject$9 || (_templateObject$9 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers$1.box);
 StyledSpinner.defaultProps = {
   m: 0,
   p: 0
@@ -1498,6 +1498,12 @@ var iconPaths = {
   mixcloud: 'M19.399,21.164h3.351V2.836h-6.628l-3.693,17.473h-0.858L7.878,2.836H1.25v18.328h3.351V5.875L4.003,3.691h1.055  l3.875,17.473h6.159l3.849-17.473h1.081l-0.623,2.185V21.164z'
 };
 
+var _templateObject$8;
+var Svg = styled__default['default'].svg.withConfig({
+  shouldForwardProp: function shouldForwardProp(prop, defaultValidatorFn) {
+    return !['height', 'width'].includes(prop) && defaultValidatorFn(prop);
+  }
+})(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
 var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var title = _ref.title,
       _ref$size = _ref.size,
@@ -1515,8 +1521,7 @@ var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     alignItems: "center",
     size: size,
     ref: ref
-  }, props), /*#__PURE__*/React__default['default'].createElement(Box, {
-    as: "svg",
+  }, props), /*#__PURE__*/React__default['default'].createElement(Svg, {
     "data-testid": "bt__svg-icon",
     xmlns: "http://www.w3.org/2000/svg",
     width: size,
@@ -1528,7 +1533,7 @@ var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   })));
 });
 Icon.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   viewBox: PropTypes.string,
   fill: PropTypes.string,
   icon: PropTypes.string,

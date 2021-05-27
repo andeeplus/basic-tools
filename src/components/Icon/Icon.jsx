@@ -1,7 +1,16 @@
 import React, { forwardRef } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import composers from 'src/styles/utils/composers';
 import Box from 'src/components/Box';
 import paths from './paths';
+
+const Svg = styled.svg.withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) =>
+    !['height', 'width'].includes(prop) && defaultValidatorFn(prop)
+})`
+  ${composers.box}
+`;
 
 const Icon = forwardRef(
   ({ title, size = 24, viewBox = '0 0 24 24', fill = 'gray.7', icon, ...props }, ref) => (
@@ -13,8 +22,7 @@ const Icon = forwardRef(
       ref={ref}
       {...props}
     >
-      <Box
-        as="svg"
+      <Svg
         data-testid="bt__svg-icon"
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -24,7 +32,7 @@ const Icon = forwardRef(
       >
         {title && <title>{title}</title>}
         <path d={paths[icon]} />
-      </Box>
+      </Svg>
     </Box>
   )
 );
@@ -32,7 +40,7 @@ const Icon = forwardRef(
 export default Icon;
 
 Icon.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   viewBox: PropTypes.string,
   fill: PropTypes.string,
   icon: PropTypes.string,

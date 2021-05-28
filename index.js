@@ -1420,7 +1420,7 @@ var iconPaths = {
   backArrow: 'M0 12l9-8v6h15v4h-15v6z',
   scratch: 'M11.917 11.019c0-.507-.41-.918-.916-.918s-.917.411-.917.918c0 .507.411.918.917.918s.916-.411.916-.918m1.751 0c0 1.473-1.196 2.671-2.667 2.671-1.47 0-2.667-1.198-2.667-2.671 0-1.473 1.197-2.671 2.667-2.671 1.471 0 2.667 1.198 2.667 2.671m5.125-2.679c-.827-2.397-2.722-4.29-5.117-5.113l-.118.936c1.981.741 3.553 2.313 4.299 4.293l.936-.116zm-1.858.232c-.652-1.58-1.913-2.843-3.491-3.494l-.12.955c1.166.548 2.109 1.491 2.656 2.659l.955-.12zm-2.267 2.447c0-2.028-1.643-3.673-3.667-3.673-2.025 0-3.667 1.645-3.667 3.673s1.642 3.673 3.667 3.673c2.024 0 3.667-1.645 3.667-3.673m-5.991 4.987c-1.166-.549-2.107-1.492-2.654-2.66l-.954.119c.65 1.582 1.911 2.844 3.49 3.496l.118-.955zm-.238 1.906c-1.989-.747-3.569-2.332-4.308-4.329l-.935.118c.822 2.412 2.721 4.318 5.126 5.147l.117-.936zm13.561-6.893c0 .264-.022.521-.04.78-.132-.033-.457-.114-.894-.021-.295-.486-.85-.799-1.503-.799-.685 0-1.27.351-1.548.885-.946-.17-2.098.418-2.098 1.593v2.761c-.687-.72-2.916-.376-2.916 1.41 0 .275.062.549.185.82.066.158 1.393 2.805 1.467 2.955-1.144.404-2.37.635-3.652.635-6.075 0-11.001-4.933-11.001-11.019 0-6.085 4.926-11.019 11-11.019s11 4.934 11 11.019m-6.302 6.286c.007.01.757 1.39.872 1.607.124.228.494.179.494-.12v-5.335c0-.839 1.348-.814 1.348 0v4.311c0 .234.453.23.453 0l.002-5.131c0-.441.355-.656.714-.656.363 0 .729.221.729.656v5.072c0 .235.437.244.437.006v-4.323c0-.862 1.475-.886 1.475 0v4.579c0 .233.472.234.472 0v-2.849c0-.778 1.304-.822 1.304.039l.002 6.499c0 1.489-.831 2.34-2.406 2.34h-2.935c-1.497 0-2.022-.846-2.438-1.696-.395-.808-2.001-3.976-2.125-4.272-.066-.144-.095-.28-.095-.404 0-.809 1.276-1.128 1.697-.323',
   archive: 'M18.546 1h-13.069l-5.477 8.986v13.014h24v-13.014l-5.454-8.986zm-3.796 12h-5.5l-2.25-3h-4.666l4.266-7h10.82l4.249 7h-4.669l-2.25 3zm-9.75-4l.607-1h12.786l.607 1h-14zm12.18-3l.607 1h-11.573l.606-1h10.36zm-1.214-2l.606 1h-9.144l.607-1h7.931z',
-  xMark: 'M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z',
+  xMark: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
   post: 'M10 13h-4v-1h4v1zm2.318-4.288l3.301 3.299-4.369.989 1.068-4.288zm11.682-5.062l-7.268 7.353-3.401-3.402 7.267-7.352 3.402 3.401zm-6 8.916v.977c0 4.107-6 2.457-6 2.457s1.518 6-2.638 6h-7.362v-20h14.056l1.977-2h-18.033v24h10.189c3.163 0 9.811-7.223 9.811-9.614v-3.843l-2 2.023z',
   user: 'M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z',
   playlist: 'M15 21v-10l9 5-9 5zm-3 0h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-6v2h-24v-2h24z',
@@ -1549,7 +1549,7 @@ var ellipsis = function ellipsis(props) {
 var Text = styled__default['default'].span.attrs(function (props) {
   if (props.link) return {
     as: 'a',
-    href: props.href
+    textDecoration: 'none'
   };
   return props;
 })(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n  ", "\n"])), ellipsis, styledSystem.textStyle, composers.text, composers.box, styledSystem.variant({
@@ -1971,28 +1971,48 @@ var _templateObject$2, _templateObject2, _templateObject3;
 
 var Toggle = function Toggle(_ref) {
   var onChange = _ref.onChange,
-      props = _objectWithoutProperties(_ref, ["onChange"]);
+      ariaLabel = _ref.ariaLabel,
+      disabled = _ref.disabled,
+      props = _objectWithoutProperties(_ref, ["onChange", "ariaLabel", "disabled"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(CheckBoxWrapper, props, /*#__PURE__*/React__default['default'].createElement(CheckBox, {
-    id: "checkbox",
+  return /*#__PURE__*/React__default['default'].createElement(CheckBoxWrapper, _extends({
+    disabled: disabled
+  }, props), /*#__PURE__*/React__default['default'].createElement(CheckBox, {
+    disabled: disabled,
+    ariaLabel: ariaLabel,
+    id: ariaLabel,
     type: "checkbox",
     onChange: onChange
   }), /*#__PURE__*/React__default['default'].createElement(CheckBoxLabel, {
-    htmlFor: "checkbox"
+    disabled: disabled,
+    htmlFor: ariaLabel
   }));
 };
 
 Toggle.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
 };
-var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n"])), composers.box);
+Toggle.defaultProps = {
+  ariaLabel: 'toggle-id'
+};
+var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n  border-color: ", ";\n"])), composers.box, function (props) {
+  return props.disabled ? props.theme.colors.gray[1] : props.borderColor;
+});
 CheckBoxWrapper.defaultProps = {
+  border: '2px solid',
+  borderColor: 'gray.3',
+  borderRadius: '15px',
   position: 'relative',
-  width: '42px',
+  width: '46px',
+  maxWidth: '46px',
   m: 2
 };
-var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  &::after {\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);\n    transition: 0.2s;\n  }\n  ", "\n"])), function (props) {
-  return props.theme.colors.gray[6];
+var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  &::after {\n    z-index: 10;\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: ", ";\n    transition: all 0.2s ease-in;\n  }\n  ", "\n"])), function (props) {
+  return props.disabled ? props.theme.colors.gray[4] : props.theme.colors.gray[6];
+}, function (props) {
+  return props.disabled ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)' : '1px 3px 3px 1px rgba(0, 0, 0, 0.2)';
 }, composers.box);
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
@@ -2003,11 +2023,10 @@ CheckBoxLabel.defaultProps = {
   borderRadius: '15px',
   bg: 'gray.3'
 };
-var CheckBox = styled__default['default'].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  &:checked + ", " {\n    background: ", ";\n    &::after {\n      content: '';\n      display: block;\n      border-radius: 50%;\n      width: 16px;\n      height: 16px;\n      margin-left: 21px;\n      transition: 0.2s;\n    }\n  }\n"])), CheckBoxLabel, function (props) {
-  return props.theme.mode[props.theme.type].body.text;
+var CheckBox = styled__default['default'].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  &:checked + ", " {\n    transition: all 0.2s ease-in;\n    &::after {\n      content: '';\n      display: block;\n      border-radius: 50%;\n      width: 18px;\n      height: 18px;\n      margin-left: 21px;\n    }\n  }\n  &:not(:checked) + ", " {\n    background: ", ";\n  }\n"])), CheckBoxLabel, CheckBoxLabel, function (props) {
+  return props.disabled ? props.theme.colors.gray[1] : props.theme.colors.white;
 });
 CheckBox.defaultProps = {
-  opacity: 0,
   zIndex: 1,
   width: '24px',
   height: '20px',
@@ -2032,9 +2051,7 @@ TextArea.defaultProps = {
 };
 
 var _templateObject;
-var GlobalReset = styled.createGlobalStyle(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n  }\n\n  ul,\n  ol {\n    padding: 0;\n  }\n\n  body,\n  h1,\n  h2,\n  h3,\n  h4,\n  p,\n  ul,\n  ol,\n  li,\n  figure,\n  figcaption,\n  blockquote,\n  dl,\n  dd {\n    margin: 0;\n  }\n\n  body {\n    scroll-behavior: smooth;\n    text-rendering: optimizeSpeed;\n    line-height: 1.5;\n\n    font-family: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  ul,\n  ol {\n    list-style: none;\n  }\n\n  img {\n    max-width: 100%;\n    display: block;\n  }\n\n  input,\n  button,\n  textarea,\n  select {\n    font: inherit;\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    * {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n\n  html {\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  }\n"])), function (props) {
-  return props.theme.fonts;
-});
+var GlobalReset = styled.createGlobalStyle(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n  }\n\n  ul,\n  ol {\n    padding: 0;\n  }\n\n  body,\n  h1,\n  h2,\n  h3,\n  h4,\n  p,\n  ul,\n  ol,\n  li,\n  figure,\n  figcaption,\n  blockquote,\n  dl,\n  dd {\n    margin: 0;\n  }\n\n  body {\n    scroll-behavior: smooth;\n    text-rendering: optimizeSpeed;\n    line-height: 1.5;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  ul,\n  ol {\n    list-style: none;\n  }\n\n  img {\n    max-width: 100%;\n    display: block;\n  }\n\n  input,\n  button,\n  textarea,\n  select {\n    font: inherit;\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    * {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n\n  html {\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  }\n"])));
 
 var getResponsiveGridByArea = function getResponsiveGridByArea(area, config) {
   var mediaQueries = Object.keys(config);
@@ -2203,19 +2220,19 @@ var title = {
   "default": {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[5],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   sm: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[4],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   xs: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[3],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: 1
   }
 };
@@ -2243,8 +2260,8 @@ var textStyles = {
 
 var linkProps = {
   cursor: 'pointer',
-  marginTop: '-1px',
-  borderBottomWidth: '1px',
+  marginTop: '-2px',
+  borderBottomWidth: '2px',
   borderBottomStyle: 'solid',
   borderBottomColor: 'transparent',
   height: 'min-content',
@@ -2255,21 +2272,21 @@ var linkStyles = {
     color: themeColors.purple[4],
     '&:hover': {
       borderBottomColor: themeColors.purple[4],
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   }),
   lg: _objectSpread2(_objectSpread2({}, linkProps), {}, {
     color: 'blue.6',
     '&:hover': {
       borderBottomColor: 'white',
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   }),
   external: _objectSpread2(_objectSpread2({}, linkProps), {}, {
     color: themeColors.red[4],
     '&:hover': {
       borderBottomColor: themeColors.red[4],
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   }),
   cta: {

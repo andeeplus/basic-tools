@@ -1,6 +1,6 @@
 {
   "name": "@andeeplus/basic-tools",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "main": "index.js",
   "repository": "git@github.com:andeeplus/basic-tools.git",
   "publishConfig": {
@@ -63,6 +63,7 @@
     "lint": "eslint . --ignore-path .eslintignore --ext .js --ext .jsx",
     "lint:fix": "yarn run lint --fix",
     "start": "start-storybook -p 9001",
-    "test": "yarn jest --coverage"
+    "test": "yarn jest --coverage",
+    "publish-to-npm": "npm publish --access=public "
   }
 }

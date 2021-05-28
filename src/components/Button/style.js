@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { typography } from 'styled-system';
-import composers from 'src/styles/utils/composers';
+import composers from 'src/utils/composers';
 import { enhancedHover } from './utils';
 import { variantProp } from './variants';
 

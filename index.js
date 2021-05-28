@@ -253,13 +253,13 @@ var customBoxProps$1 = styledSystem.system({
     property: 'transition'
   }
 });
-var composers$1 = {
+var composers = {
   box: styledSystem.compose(styledSystem.flexbox, styledSystem.layout, styledSystem.space, styledSystem.color, styledSystem.border, styledSystem.position, styledSystem.background, styledSystem.shadow, styledSystem.typography, styledSystem.grid, customTextProps$1, customBoxProps$1),
   text: styledSystem.compose(styledSystem.typography, styledSystem.color, styledSystem.space, styledSystem.layout, styledSystem.position, styledSystem.flexbox, customTextProps$1)
 };
 
 var _templateObject$a;
-var Box = styled__default['default'].div(_templateObject$a || (_templateObject$a = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
+var Box = styled__default['default'].div(_templateObject$a || (_templateObject$a = _taggedTemplateLiteral(["\n  ", "\n"])), composers.box);
 Box.defaultProps = {
   display: 'flex',
   position: 'relative',
@@ -1350,12 +1350,12 @@ if (process.env.NODE_ENV !== 'production') {
 var PropTypes = propTypes.exports;
 
 var _templateObject$9, _templateObject2$2;
-var StyledSpinner = styled__default['default'].svg(_templateObject$9 || (_templateObject$9 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers$1.box);
+var StyledSpinner = styled__default['default'].svg(_templateObject$9 || (_templateObject$9 = _taggedTemplateLiteral(["\n  ", "\n  animation: rotate 1s linear infinite;\n\n  @keyframes rotate {\n    100% {\n      transform: rotate(360deg);\n    }\n  }\n  @keyframes dash {\n    0% {\n      stroke-dasharray: 1, 150;\n      stroke-dashoffset: 0;\n    }\n    50% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -35;\n    }\n    100% {\n      stroke-dasharray: 90, 150;\n      stroke-dashoffset: -124;\n    }\n  }\n"])), composers.box);
 StyledSpinner.defaultProps = {
   m: 0,
   p: 0
 };
-var StyledCircle = styled__default['default'].circle(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteral(["\n  stroke-linecap: round;\n  animation: dash 1.5s ease-in-out infinite;\n  ", "\n"])), composers$1.box);
+var StyledCircle = styled__default['default'].circle(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteral(["\n  stroke-linecap: round;\n  animation: dash 1.5s ease-in-out infinite;\n  ", "\n"])), composers.box);
 StyledCircle.defaultProps = {
   cx: '25',
   cy: '25',
@@ -1503,7 +1503,7 @@ var Svg = styled__default['default'].svg.withConfig({
   shouldForwardProp: function shouldForwardProp(prop, defaultValidatorFn) {
     return !['height', 'width'].includes(prop) && defaultValidatorFn(prop);
   }
-})(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n"])), composers$1.box);
+})(_templateObject$8 || (_templateObject$8 = _taggedTemplateLiteral(["\n  ", "\n"])), composers.box);
 var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var title = _ref.title,
       _ref$size = _ref.size,
@@ -1540,207 +1540,32 @@ Icon.propTypes = {
   title: PropTypes.string
 };
 
-var baseTheme = {
-  borderWidths: [0, '3px'],
-  breakpoints: ['444px', '768px', '1080px', '1640px'],
-  fonts: {
-    normal: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
-    title: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
-  },
-  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28px', '34px', '40px', '48px'],
-  fontWeights: {
-    light: 100,
-    regular: 400,
-    semibold: 600,
-    bold: 700
-  },
-  lineHeights: {
-    condensedUltra: 1,
-    condensed: 1.25,
-    "default": 1.5
-  },
-  radii: ['0', '3px', '6px', '100px'],
-  shadows: {
-    xs: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-    sm: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
-    md: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-    lg: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
-    xl: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)'
-  },
-  space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px']
-};
-
-var generateDynamicColors$1 = function generateDynamicColors(colors) {
-  var dynamicColors = {};
-  var colorsArray = {};
-  Object.keys(colors).forEach(function (col) {
-    if (_typeof(colors[col]) === 'object') colorsArray[col] = colors[col];
-  });
-  Object.keys(colorsArray).forEach(function (col) {
-    colorsArray[col].forEach(function (c, index) {
-      dynamicColors["".concat(col, ".").concat(index)] = colorsArray[col][index];
-    });
-  });
-  return dynamicColors;
-};
-
-var colorsPalette = {
-  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
-  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
-  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
-  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
-  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
-  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
-  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
-  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
-  black: '#1b1f23',
-  white: '#fff',
-  blackfade15: 'rgba(27, 31, 35, 0.15)',
-  blackfade20: 'rgba(27, 31, 35, 0.20)',
-  blackfade30: 'rgba(27,31,35,0.3)',
-  blackfade35: 'rgba(27, 31, 35, 0.35)',
-  blackfade50: 'rgba(27, 31, 35, 0.5)',
-  blackfade80: 'rgba(27, 31, 35, 0.8)',
-  blackfade90: '#000000ed',
-  whitefade15: 'rgba(255, 255, 255, 0.15)',
-  whitefade50: 'rgba(255, 255, 255, 0.50)',
-  whitefade80: 'rgba(255, 255, 255, 0.8)'
-};
-var themeColors = _objectSpread2(_objectSpread2({}, colorsPalette), generateDynamicColors$1(colorsPalette));
-
-var theme = _objectSpread2(_objectSpread2({}, baseTheme), {}, {
-  colors: themeColors
-});
-
-var linkProps = {
-  fontSize: theme.fontSizes[2],
-  cursor: 'pointer',
-  marginTop: '-1px',
-  borderBottomWidth: '1px',
-  borderBottomStyle: 'solid',
-  borderBottomColor: 'transparent',
-  height: 'min-content',
-  textDecoration: 'none'
-};
-var link = {
-  "default": _objectSpread2(_objectSpread2({}, linkProps), {}, {
-    color: 'purple.4',
-    '&:hover': {
-      borderBottomColor: 'purple.4',
-      borderBottomWidth: '1px'
-    }
-  }),
-  lg: _objectSpread2(_objectSpread2({}, linkProps), {}, {
-    fontSize: theme.fontSizes[3],
-    color: 'blue.6',
-    '&:hover': {
-      borderBottomColor: 'white',
-      borderBottomWidth: '1px'
-    }
-  }),
-  internal: _objectSpread2(_objectSpread2({}, linkProps), {}, {
-    color: 'gray.6',
-    '&:hover': {
-      borderBottomColor: 'gray.6',
-      borderBottomWidth: '1px'
-    }
-  }),
-  external: _objectSpread2(_objectSpread2({}, linkProps), {}, {
-    color: 'red.4',
-    '&:hover': {
-      borderBottomColor: 'red.4',
-      borderBottomWidth: '1px'
-    }
-  }),
-  cta: {
-    px: 1,
-    mx: 1,
-    fontSize: theme.fontSizes[2],
-    cursor: 'pointer',
-    borderColor: 'gray.8',
-    color: 'gray.8',
-    border: '2px solid',
-    minHeight: '24px',
-    borderRadius: '3px',
-    mt: '-2px',
-    '&:hover': {
-      bg: 'gray.8',
-      color: 'gray.0',
-      borderColor: 'gray.8'
-    }
-  }
-};
-var title = {
-  lg: {
-    fontFamily: 'title',
-    fontSize: [theme.fontSizes[6], theme.fontSizes[7]],
-    fontWeight: theme.fontWeights.bold,
-    lineHeight: "".concat(theme.fontSizes[7]),
-    mb: 2
-  },
-  "default": {
-    fontFamily: 'title',
-    fontSize: theme.fontSizes[6],
-    fontWeight: theme.fontWeights.semibold,
-    lineHeight: "".concat(theme.fontSizes[6]),
-    mb: 2
-  },
-  sm: {
-    fontFamily: 'title',
-    fontSize: [theme.fontSizes[3], theme.fontSizes[4], theme.fontSizes[4], theme.fontSizes[5]],
-    fontWeight: theme.fontWeights.semibold,
-    lineHeight: "".concat(theme.fontSizes[4]),
-    mb: 2
-  },
-  xs: {
-    fontFamily: 'title',
-    fontSize: theme.fontSizes[3],
-    fontWeight: theme.fontWeights.semibold,
-    lineHeight: "".concat(theme.fontSizes[3]),
-    mb: 1
-  }
-};
-var p = {
-  lg: {
-    fontSize: theme.fontSizes[3],
-    lineHeight: theme.fontSizes[3]
-  },
-  "default": {
-    fontSize: theme.fontSizes[2],
-    lineHeight: theme.fontSizes[2]
-  },
-  sm: {
-    fontSize: theme.fontSizes[1],
-    lineHeight: theme.fontSizes[1]
-  },
-  xs: {
-    fontSize: theme.fontSizes[0],
-    lineHeight: theme.fontSizes[0]
-  }
-};
-var textVariants = {
-  p: p,
-  title: title,
-  link: link
-};
-
 var _templateObject$7;
 
 var ellipsis = function ellipsis(props) {
   return props.ellipsis && "\n    display: -webkit-box;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: ".concat(props.ellipsis, ";\n  ");
 };
 
-var Text = styled__default['default'].span(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.variant({
-  variants: textVariants
-}), composers$1.text, composers$1.box);
+var Text = styled__default['default'].span.attrs(function (props) {
+  if (props.link) return {
+    as: 'a',
+    href: props.href
+  };
+  return props;
+})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n  ", "\n"])), ellipsis, styledSystem.textStyle, composers.text, composers.box, styledSystem.variant({
+  prop: 'link',
+  scale: 'linkStyles'
+}));
 Text.defaultProps = {
-  variant: 'paragraph',
+  variant: 'p.default',
   width: 'fit-content',
   transition: 'all 0.1s ease-in',
-  fontFamily: 'normal'
+  fontFamily: 'normal',
+  lineHeight: 'default'
 };
 
-var enhancedHover = styled.css(["&:hover{filter:brightness(130%);}&:active{filter:brightness(95%);}"]);
+// eslint-disable-next-line import/prefer-default-export
+var enhancedHover = "\n  &:hover {\n    filter: brightness(130%);\n  }\n  &:active {\n    filter: brightness(95%);\n  }\n";
 
 var filled$1 = function filled(props) {
   return {
@@ -1847,7 +1672,7 @@ var type = function type(props) {
 };
 
 var _templateObject$6;
-var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), enhancedHover, styledSystem.typography, composers$1.box, function (props) {
+var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), enhancedHover, styledSystem.typography, composers.box, function (props) {
   return type(props);
 });
 InnerButton.defaultProps = {
@@ -1987,12 +1812,12 @@ DrawerContent.displayName = 'DrawerContent';
 
 var Drawer = function Drawer(_ref) {
   var children = _ref.children,
-      open = _ref.open,
-      _ref$side = _ref.side,
-      side = _ref$side === void 0 ? 'top' : _ref$side;
+      open = _ref.open;
       _ref.onDismiss;
       var placement = _ref.placement,
-      props = _objectWithoutProperties(_ref, ["children", "open", "side", "onDismiss", "placement"]);
+      _ref$side = _ref.side,
+      side = _ref$side === void 0 ? 'top' : _ref$side,
+      props = _objectWithoutProperties(_ref, ["children", "open", "onDismiss", "placement", "side"]);
 
   var enhancedPlacements = placement ? _objectSpread2(_objectSpread2({}, defaultPlacements), {}, _defineProperty({}, placement.key, placement.value)) : defaultPlacements;
   return /*#__PURE__*/React__default['default'].createElement(DrawerWrapper, {
@@ -2022,7 +1847,7 @@ Drawer.propTypes = {
 var Drawer$1 = /*#__PURE__*/React.memo(Drawer);
 
 var _templateObject$4;
-var InputField$1 = styled__default['default'].input(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers$1.text, composers$1.box, function (_ref) {
+var InputField$1 = styled__default['default'].input(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers.text, composers.box, function (_ref) {
   var theme = _ref.theme;
   return "\n    &:focus {\n      border-color:".concat(theme.colors.blue[5], ";\n      background:").concat(theme.colors.blue[0], ";\n    }\n    &:active {\n      border-color:").concat(theme.colors.blue[5], ";\n    }\n    &:disabled {\n      border-color:").concat(theme.colors.gray[4], ";\n      background:").concat(theme.colors.gray[0], ";\n    }\n  ");
 });
@@ -2085,7 +1910,8 @@ var Overlay = function Overlay(_ref) {
     display: isVisible ? 'block' : 'none'
   }, props));
 };
-Overlay.displayName = 'OverlayBg';
+
+Overlay.displayName = 'Overlay';
 Overlay.propTypes = {
   isVisible: PropTypes.bool
 };
@@ -2159,7 +1985,7 @@ var Toggle = function Toggle(_ref) {
 Toggle.propTypes = {
   onChange: PropTypes.func
 };
-var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n"])), composers$1.box);
+var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n"])), composers.box);
 CheckBoxWrapper.defaultProps = {
   position: 'relative',
   width: '42px',
@@ -2167,7 +1993,7 @@ CheckBoxWrapper.defaultProps = {
 };
 var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  &::after {\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);\n    transition: 0.2s;\n  }\n  ", "\n"])), function (props) {
   return props.theme.colors.gray[6];
-}, composers$1.box);
+}, composers.box);
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
   top: 0,
@@ -2190,7 +2016,7 @@ CheckBox.defaultProps = {
 };
 
 var _templateObject$1;
-var TextArea = styled__default['default'].textarea(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  box-sizing: border-box;\n  ", "\n"])), composers$1.box, composers$1.text, function (_ref) {
+var TextArea = styled__default['default'].textarea(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  box-sizing: border-box;\n  ", "\n"])), composers.box, composers.text, function (_ref) {
   var theme = _ref.theme;
   return "\n    &:focus {\n      border-color:".concat(theme.colors.blue[5], ";\n      background:").concat(theme.colors.blue[0], ";\n    }\n    &:active {\n      border-color:").concat(theme.colors.blue[5], ";\n    }\n    &:disabled {\n      border-color:").concat(theme.colors.gray[4], ";\n      background:").concat(theme.colors.gray[0], ";\n    }\n  ");
 });
@@ -2209,6 +2035,104 @@ var _templateObject;
 var GlobalReset = styled.createGlobalStyle(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n  }\n\n  ul,\n  ol {\n    padding: 0;\n  }\n\n  body,\n  h1,\n  h2,\n  h3,\n  h4,\n  p,\n  ul,\n  ol,\n  li,\n  figure,\n  figcaption,\n  blockquote,\n  dl,\n  dd {\n    margin: 0;\n  }\n\n  body {\n    scroll-behavior: smooth;\n    text-rendering: optimizeSpeed;\n    line-height: 1.5;\n\n    font-family: ", ";\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  ul,\n  ol {\n    list-style: none;\n  }\n\n  img {\n    max-width: 100%;\n    display: block;\n  }\n\n  input,\n  button,\n  textarea,\n  select {\n    font: inherit;\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    * {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n\n  html {\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  }\n"])), function (props) {
   return props.theme.fonts;
 });
+
+var getResponsiveGridByArea = function getResponsiveGridByArea(area, config) {
+  var mediaQueries = Object.keys(config);
+  var props = {};
+  mediaQueries.forEach(function (mq) {
+    var attributes = config[mq][area];
+    var keys = Object.keys(attributes);
+    keys.forEach(function (key) {
+      if (!props[key]) props[key] = [];
+      var valueToPush = attributes[key] !== undefined ? attributes[key] : 'hola';
+      props[key].push(valueToPush);
+    });
+  });
+  return props;
+};
+var createGridElement = function createGridElement(as, area, props, gridConfig) {
+  return /*#__PURE__*/React.createElement(Box, _objectSpread2(_objectSpread2({}, getResponsiveGridByArea(area, gridConfig)), {}, {
+    as: as
+  }, props));
+};
+
+var themeColors = {
+  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
+  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
+  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
+  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
+  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
+  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
+  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
+  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
+  black: '#1b1f23',
+  white: '#fff',
+  blackfade15: 'rgba(27, 31, 35, 0.15)',
+  blackfade20: 'rgba(27, 31, 35, 0.20)',
+  blackfade30: 'rgba(27,31,35,0.3)',
+  blackfade35: 'rgba(27, 31, 35, 0.35)',
+  blackfade50: 'rgba(27, 31, 35, 0.5)',
+  blackfade80: 'rgba(27, 31, 35, 0.8)',
+  blackfade90: '#000000ed',
+  whitefade15: 'rgba(255, 255, 255, 0.15)',
+  whitefade50: 'rgba(255, 255, 255, 0.50)',
+  whitefade80: 'rgba(255, 255, 255, 0.8)'
+};
+
+var getRandomElementFromArray = function getRandomElementFromArray(array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
+var getRandomSystemColor = function getRandomSystemColor(shouldBeHex) {
+  var choosenColors = ['gray', 'blue', 'green', 'orange', 'purple', 'red', 'yellow', 'pink'];
+  var levels = [3, 4, 5, 6, 7, 8, 9];
+  var color = getRandomElementFromArray(choosenColors);
+  var level = getRandomElementFromArray(levels);
+  if (shouldBeHex) return themeColors[color][level];
+  return "".concat(color, ".").concat(level);
+};
+var generateDynamicColors = function generateDynamicColors(colors) {
+  var dynamicColors = {};
+  var colorsArray = {};
+  Object.keys(colors).forEach(function (col) {
+    if (_typeof(colors[col]) === 'object') colorsArray[col] = colors[col];
+  });
+  Object.keys(colorsArray).forEach(function (col) {
+    colorsArray[col].forEach(function (c, index) {
+      dynamicColors["".concat(col, ".").concat(index)] = colorsArray[col][index];
+    });
+  });
+  return dynamicColors;
+};
+
+var baseTheme = {
+  borderWidths: [0, '3px'],
+  breakpoints: ['444px', '768px', '1080px', '1640px'],
+  fonts: {
+    normal: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    title: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
+  },
+  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28px', '34px', '40px', '48px'],
+  fontWeights: {
+    light: 100,
+    regular: 400,
+    semibold: 600,
+    bold: 700
+  },
+  lineHeights: {
+    condensedUltra: 1,
+    condensed: 1.25,
+    "default": 1.5
+  },
+  radii: ['0', '3px', '6px', '9px'],
+  shadows: {
+    xs: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+    sm: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+    md: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+    lg: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
+    xl: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)'
+  },
+  space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px']
+};
 
 var customTextProps = styledSystem.system({
   cursor: {
@@ -2258,55 +2182,123 @@ var customBoxProps = styledSystem.system({
     property: 'transition'
   }
 });
-var composers = {
+({
   box: styledSystem.compose(styledSystem.flexbox, styledSystem.layout, styledSystem.space, styledSystem.color, styledSystem.border, styledSystem.position, styledSystem.background, styledSystem.shadow, styledSystem.typography, styledSystem.grid, customTextProps, customBoxProps),
   text: styledSystem.compose(styledSystem.typography, styledSystem.color, styledSystem.space, styledSystem.layout, styledSystem.position, styledSystem.flexbox, customTextProps)
+});
+
+var title = {
+  xl: {
+    fontFamily: 'title',
+    fontSize: baseTheme.fontSizes[7],
+    fontWeight: 'bold',
+    marginBottom: baseTheme.space[2]
+  },
+  lg: {
+    fontFamily: 'title',
+    fontSize: baseTheme.fontSizes[6],
+    fontWeight: 'bold',
+    marginBottom: baseTheme.space[2]
+  },
+  "default": {
+    fontFamily: 'title',
+    fontSize: baseTheme.fontSizes[5],
+    fontWeight: 'semibold',
+    marginBottom: baseTheme.space[2]
+  },
+  sm: {
+    fontFamily: 'title',
+    fontSize: baseTheme.fontSizes[4],
+    fontWeight: 'semibold',
+    marginBottom: baseTheme.space[2]
+  },
+  xs: {
+    fontFamily: 'title',
+    fontSize: baseTheme.fontSizes[3],
+    fontWeight: 'semibold',
+    marginBottom: 1
+  }
+};
+var p = {
+  xl: {
+    fontSize: baseTheme.fontSizes[4]
+  },
+  lg: {
+    fontSize: baseTheme.fontSizes[3]
+  },
+  "default": {
+    fontSize: baseTheme.fontSizes[2]
+  },
+  sm: {
+    fontSize: baseTheme.fontSizes[1]
+  },
+  xs: {
+    fontSize: baseTheme.fontSizes[0]
+  }
+};
+var textStyles = {
+  p: p,
+  title: title
 };
 
-var getResponsiveGridByArea = function getResponsiveGridByArea(area, config) {
-  var mediaQueries = Object.keys(config);
-  var props = {};
-  mediaQueries.forEach(function (mq) {
-    var attributes = config[mq][area];
-    var keys = Object.keys(attributes);
-    keys.forEach(function (key) {
-      if (!props[key]) props[key] = [];
-      var valueToPush = attributes[key] !== undefined ? attributes[key] : 'hola';
-      props[key].push(valueToPush);
-    });
-  });
-  return props;
+var linkProps = {
+  cursor: 'pointer',
+  marginTop: '-1px',
+  borderBottomWidth: '1px',
+  borderBottomStyle: 'solid',
+  borderBottomColor: 'transparent',
+  height: 'min-content',
+  textDecoration: 'none'
 };
-var createGridElement = function createGridElement(as, area, props, gridConfig) {
-  return /*#__PURE__*/React.createElement(Box, _objectSpread2(_objectSpread2({}, getResponsiveGridByArea(area, gridConfig)), {}, {
-    as: as
-  }, props));
+var linkStyles = {
+  "default": _objectSpread2(_objectSpread2({}, linkProps), {}, {
+    color: themeColors.purple[4],
+    '&:hover': {
+      borderBottomColor: themeColors.purple[4],
+      borderBottomWidth: '1px'
+    }
+  }),
+  lg: _objectSpread2(_objectSpread2({}, linkProps), {}, {
+    color: 'blue.6',
+    '&:hover': {
+      borderBottomColor: 'white',
+      borderBottomWidth: '1px'
+    }
+  }),
+  external: _objectSpread2(_objectSpread2({}, linkProps), {}, {
+    color: themeColors.red[4],
+    '&:hover': {
+      borderBottomColor: themeColors.red[4],
+      borderBottomWidth: '1px'
+    }
+  }),
+  cta: {
+    paddingLeft: baseTheme.space[1],
+    paddingRight: baseTheme.space[1],
+    marginTop: '-2px',
+    marginLeft: baseTheme.space[1],
+    marginRight: baseTheme.space[1],
+    cursor: 'pointer',
+    borderColor: themeColors.gray[8],
+    color: themeColors.gray[8],
+    border: '2px solid',
+    minHeight: '24px',
+    borderRadius: '3px',
+    '&:hover': {
+      backgroundColor: themeColors.gray[8],
+      color: themeColors.gray[0],
+      borderColor: themeColors.gray[8]
+    }
+  }
 };
 
-var getRandomElementFromArray = function getRandomElementFromArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
-};
-var getRandomSystemColor = function getRandomSystemColor(shouldBeHex) {
-  var choosenColors = ['gray', 'blue', 'green', 'orange', 'purple', 'red', 'yellow', 'pink'];
-  var levels = [3, 4, 5, 6, 7, 8, 9];
-  var color = getRandomElementFromArray(choosenColors);
-  var level = getRandomElementFromArray(levels);
-  if (shouldBeHex) return colorsPalette[color][level];
-  return "".concat(color, ".").concat(level);
-};
-var generateDynamicColors = function generateDynamicColors(colors) {
-  var dynamicColors = {};
-  var colorsArray = {};
-  Object.keys(colors).forEach(function (col) {
-    if (_typeof(colors[col]) === 'object') colorsArray[col] = colors[col];
-  });
-  Object.keys(colorsArray).forEach(function (col) {
-    colorsArray[col].forEach(function (c, index) {
-      dynamicColors["".concat(col, ".").concat(index)] = colorsArray[col][index];
-    });
-  });
-  return dynamicColors;
-};
+var enhancedColors = _objectSpread2(_objectSpread2({}, themeColors), generateDynamicColors(themeColors));
+
+var theme = _objectSpread2(_objectSpread2({}, baseTheme), {}, {
+  textStyles: textStyles,
+  linkStyles: linkStyles,
+  colors: enhancedColors
+});
 
 exports.Box = Box;
 exports.Button = Button;
@@ -2321,12 +2313,12 @@ exports.Text = Text;
 exports.TextArea = TextArea;
 exports.Toggle = Toggle;
 exports.baseTheme = baseTheme;
-exports.colorsPalette = colorsPalette;
-exports.composers = composers;
 exports.createGridElement = createGridElement;
 exports.generateDynamicColors = generateDynamicColors;
 exports.getRandomElementFromArray = getRandomElementFromArray;
 exports.getRandomSystemColor = getRandomSystemColor;
 exports.getResponsiveGridByArea = getResponsiveGridByArea;
+exports.linkStyles = linkStyles;
+exports.textStyles = textStyles;
 exports.theme = theme;
 exports.themeColors = themeColors;

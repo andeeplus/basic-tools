@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import composers from 'src/styles/utils/composers';
+import composers from 'src/utils/composers';
 import Box from 'src/components/Box';
 import paths from './paths';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Box } from 'src/components';
+import Box from 'src/components/Box';
 
 const StyledOverlay = styled(Box)`
   width: 100%;
@@ -9,10 +9,10 @@ const StyledOverlay = styled(Box)`
   transition: height 0.3s ease-out;
 `;
 
-export default StyledOverlay;
-
 StyledOverlay.defaultProps = {
   zIndex: 5,
   position: 'fixed',
   bg: 'blackfade35'
 };
+
+export default StyledOverlay;

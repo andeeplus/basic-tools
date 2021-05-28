@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, screen } from '@testing-library/react';
-import theme from 'src/styles/theme';
+import { theme } from 'src/theme';
 import Box from 'src/components/Box';
 import { renderWithTheme } from 'src/private/test-utils/renderWithTheme';
 

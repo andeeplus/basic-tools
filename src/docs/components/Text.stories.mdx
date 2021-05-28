@@ -22,53 +22,61 @@ Variants are `light` `regular` `semibold` `bold`
 
 <Canvas>
   <Story name="p.lg">
-    <Text variant="p.lg">p.lg</Text>
+    <Text textStyle="cta">p.lg</Text>
   </Story>
   <Story name="p">
-    <Text variant="p.default">p.default</Text>
+    <Text textStyle="p.default">p.default</Text>
   </Story>
   <Story name="p.sm">
-    <Text variant="p.sm">p.sm</Text>
+    <Text textStyle="p.sm">p.sm</Text>
   </Story>
   <Story name="p.xs">
-    <Text variant="p.xs">p.xs</Text>
+    <Text textStyle="p.xs">p.xs</Text>
   </Story>
 </Canvas>
 
 ### Title
 
 <Canvas>
-  <Story name="title.lg">
-    <Text variant="title.lg">title.lg</Text>
+  <Story name="title.xl">
+    <Text textStyle="title.xl">title.xl</Text>
   </Story>
-  <Story name="title">
-    <Text variant="title.default">title.default</Text>
+  <Story name="title.lg">
+    <Text textStyle="title.lg">title.lg</Text>
+  </Story>
+  <Story name="title.default">
+    <Text textStyle="title.default">title.default</Text>
   </Story>
   <Story name="title.sm">
-    <Text variant="title.sm">title.sm</Text>
+    <Text textStyle="title.sm">title.sm</Text>
   </Story>
   <Story name="title.xs">
-    <Text variant="title.xs">title.xs</Text>
+    <Text textStyle="title.xs">title.xs</Text>
   </Story>
 </Canvas>
 
 ### Link
 
 <Canvas>
-  <Story name="link.lg">
-    <Text variant="link.lg">link.lg</Text>
+  <Story name="title xl link">
+    <Text textStyle="title.xl" link="default" href="#">
+      Title link default
+    </Text>
   </Story>
-  <Story name="link.default">
-    <Text variant="link.default">link.default</Text>
+  <Story name="title default link">
+    <Text textStyle="title.default" link="cta" href="#">
+      Title link cta
+    </Text>
   </Story>
-  <Story name="link.internal">
-    <Text variant="link.internal">link.internal</Text>
+  <Story name="a link default">
+    <Text textStyle="p.default" link="default" href="#">
+      a link
+    </Text>
   </Story>
-  <Story name="link.external">
-    <Text variant="link.external">link.external</Text>
-  </Story>
-  <Story name="link.cta">
-    <Text variant="link.cta">link.cta</Text>
+  <Story name="a link external">
+    <Text textStyle="p.default" link="external" href="#">
+      a link external
+    </Text>
   </Story>
 </Canvas>
 
@@ -76,22 +84,22 @@ Variants are `light` `regular` `semibold` `bold`
 
 <Canvas>
   <Story name="title-lg thin">
-    <Text variant="title.lg" fontWeight="light">
+    <Text textStyle="title.lg" fontWeight="light">
       title.lg light
     </Text>
   </Story>
   <Story name="title-thin">
-    <Text variant="title.default" fontWeight="regular">
+    <Text textStyle="title.default" fontWeight="regular">
       title.default regular
     </Text>
   </Story>
   <Story name="p-bold">
-    <Text variant="p.lg" fontWeight="semibold">
+    <Text textStyle="p.lg" fontWeight="semibold">
       p.lg semibold
     </Text>
   </Story>
   <Story name="link">
-    <Text variant="link.default" fontWeight="bold">
+    <Text textStyle="link.default" fontWeight="bold">
       link.default bold
     </Text>
   </Story>

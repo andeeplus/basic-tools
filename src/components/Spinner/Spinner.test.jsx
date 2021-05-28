@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, screen } from '@testing-library/react';
-import theme from 'src/styles/theme';
+import { theme } from 'src/theme';
 import Spinner from 'src/components/Spinner';
 import { renderWithTheme } from 'src/private/test-utils/renderWithTheme';
 

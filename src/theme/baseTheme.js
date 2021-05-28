@@ -20,7 +20,7 @@ const baseTheme = {
     condensed: 1.25,
     default: 1.5
   },
-  radii: ['0', '3px', '6px', '100px'],
+  radii: ['0', '3px', '6px', '9px'],
   shadows: {
     xs: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     sm: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',

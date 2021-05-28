@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import Box from '../../components/Box';
 import Text from '../../components/Text';
-import { colorsPalette } from '../../styles';
+import { themeColors } from '../../styles';
 
 <Meta title="Theme/Colors" />
 
@@ -11,11 +11,11 @@ Theme colors can be passed to any components through its relevant props as it co
 
 <Canvas>
   <Story name="colors">
-    {Object.keys(colorsPalette).map((color) => {
-      if (typeof colorsPalette[color] === 'string') return null;
+    {Object.keys(themeColors).map((color) => {
+      if (typeof themeColors[color] === 'string') return null;
       return (
         <Box key={color} flexWrap="wrap">
-          {colorsPalette[color].map((hex, i) => (
+          {themeColors[color].map((hex, i) => (
             <Box key={hex} flexDirection="column">
               <Box bg={hex} size={80} />
               <Text variant="p.xs" fontWeight="bold">{`${color}.${i}`}</Text>

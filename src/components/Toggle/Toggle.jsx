@@ -3,40 +3,63 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import composers from 'src/utils/composers';
 
-const Toggle = ({ onChange, ...props }) => (
-  <CheckBoxWrapper {...props}>
-    <CheckBox id="checkbox" type="checkbox" onChange={onChange} />
-    <CheckBoxLabel htmlFor="checkbox" />
+const Toggle = ({ onChange, ariaLabel, disabled, ...props }) => (
+  <CheckBoxWrapper disabled={disabled} {...props}>
+    <CheckBox
+      disabled={disabled}
+      ariaLabel={ariaLabel}
+      id={ariaLabel}
+      type="checkbox"
+      onChange={onChange}
+    />
+    <CheckBoxLabel disabled={disabled} htmlFor={ariaLabel} />
   </CheckBoxWrapper>
 );
 
 Toggle.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
+};
+
+Toggle.defaultProps = {
+  ariaLabel: 'toggle-id'
 };
 
 const CheckBoxWrapper = styled.div`
   position: relative;
   ${composers.box}
+  border-color: ${(props) =>
+    props.disabled ? props.theme.colors.gray[1] : props.borderColor};
 `;
 
 CheckBoxWrapper.defaultProps = {
+  border: '2px solid',
+  borderColor: 'gray.3',
+  borderRadius: '15px',
   position: 'relative',
-  width: '42px',
+  width: '46px',
+  maxWidth: '46px',
   m: 2
 };
 
 const CheckBoxLabel = styled.label`
   cursor: pointer;
   &::after {
+    z-index: 10;
     content: '';
     display: block;
     border-radius: 50%;
     width: 18px;
     height: 18px;
     margin: 3px;
-    background: ${(props) => props.theme.colors.gray[6]};
-    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
-    transition: 0.2s;
+    background: ${(props) =>
+      props.disabled ? props.theme.colors.gray[4] : props.theme.colors.gray[6]};
+    box-shadow: ${(props) =>
+      props.disabled
+        ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)'
+        : '1px 3px 3px 1px rgba(0, 0, 0, 0.2)'};
+    transition: all 0.2s ease-in;
   }
   ${composers.box}
 `;
@@ -53,21 +76,23 @@ CheckBoxLabel.defaultProps = {
 
 const CheckBox = styled.input`
   &:checked + ${CheckBoxLabel} {
-    background: ${(props) => props.theme.mode[props.theme.type].body.text};
+    transition: all 0.2s ease-in;
     &::after {
       content: '';
       display: block;
       border-radius: 50%;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       margin-left: 21px;
-      transition: 0.2s;
     }
+  }
+  &:not(:checked) + ${CheckBoxLabel} {
+    background: ${(props) =>
+      props.disabled ? props.theme.colors.gray[1] : props.theme.colors.white};
   }
 `;
 
 CheckBox.defaultProps = {
-  opacity: 0,
   zIndex: 1,
   width: '24px',
   height: '20px',

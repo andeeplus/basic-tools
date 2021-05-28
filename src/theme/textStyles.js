@@ -16,19 +16,19 @@ const title = {
   default: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[5],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   sm: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[4],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   xs: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[3],
-    fontWeight: 'semibold',
+    fontWeight: 'bold',
     marginBottom: 1
   }
 };

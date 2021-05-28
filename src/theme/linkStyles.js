@@ -3,8 +3,8 @@ import themeColors from './themeColors';
 
 const linkProps = {
   cursor: 'pointer',
-  marginTop: '-1px',
-  borderBottomWidth: '1px',
+  marginTop: '-2px',
+  borderBottomWidth: '2px',
   borderBottomStyle: 'solid',
   borderBottomColor: 'transparent',
   height: 'min-content',
@@ -17,7 +17,7 @@ const linkStyles = {
     color: themeColors.purple[4],
     '&:hover': {
       borderBottomColor: themeColors.purple[4],
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   },
   lg: {
@@ -25,7 +25,7 @@ const linkStyles = {
     color: 'blue.6',
     '&:hover': {
       borderBottomColor: 'white',
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   },
   external: {
@@ -33,7 +33,7 @@ const linkStyles = {
     color: themeColors.red[4],
     '&:hover': {
       borderBottomColor: themeColors.red[4],
-      borderBottomWidth: '1px'
+      borderBottomWidth: '2px'
     }
   },
   cta: {

@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Toggle from '../../components/Toggle';
+
+<Meta title="Components/Toggle" component={Toggle} />
+
+# Toggle Component
+
+<Canvas>
+  <Story name="default box">
+    <Toggle ariaLabel="left-eye" onChange={() => {}} />
+  </Story>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <Story name="coloured box">
+    <Toggle disabled ariaLabel="right-eye" onClick={() => {}} />}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Toggle} />

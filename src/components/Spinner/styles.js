@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import composers from 'src/styles/utils/composers';
+import composers from 'src/utils/composers';
 
 export const StyledSpinner = styled.svg`
   ${composers.box}

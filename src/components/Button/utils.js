@@ -1,7 +1,5 @@
-import { css } from 'styled-components';
-
 // eslint-disable-next-line import/prefer-default-export
-export const enhancedHover = css`
+export const enhancedHover = `
   &:hover {
     filter: brightness(130%);
   }

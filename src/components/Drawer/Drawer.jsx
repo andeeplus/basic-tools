@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { defaultPlacements } from './config';
 import { DrawerContent, DrawerWrapper } from './styles';
 
-const Drawer = ({ children, open, side = 'top', onDismiss, placement, ...props }) => {
+const Drawer = ({ children, open, onDismiss, placement, side = 'top', ...props }) => {
   const enhancedPlacements = placement
     ? {
         ...defaultPlacements,

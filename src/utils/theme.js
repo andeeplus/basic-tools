@@ -1,4 +1,4 @@
-import { colorsPalette } from 'src';
+import themeColors from 'src/theme/themeColors';
 
 export const getRandomElementFromArray = (array) =>
   array[Math.floor(Math.random() * array.length)];
@@ -19,7 +19,7 @@ export const getRandomSystemColor = (shouldBeHex) => {
 
   const color = getRandomElementFromArray(choosenColors);
   const level = getRandomElementFromArray(levels);
-  if (shouldBeHex) return colorsPalette[color][level];
+  if (shouldBeHex) return themeColors[color][level];
   return `${color}.${level}`;
 };
 

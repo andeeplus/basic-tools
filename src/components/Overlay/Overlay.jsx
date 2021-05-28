@@ -19,9 +19,10 @@ const Overlay = ({ isVisible, ...props }) => {
   );
 };
 
-export default Overlay;
-Overlay.displayName = 'OverlayBg';
+Overlay.displayName = 'Overlay';
 
 Overlay.propTypes = {
   isVisible: PropTypes.bool
 };
+
+export default Overlay;

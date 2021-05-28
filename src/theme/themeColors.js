@@ -1,6 +1,4 @@
-import { generateDynamicColors } from 'src/styles/utils/theme';
-
-export const colorsPalette = {
+const themeColors = {
   gray: [
     '#fafbfc',
     '#f6f8fa',
@@ -111,7 +109,4 @@ export const colorsPalette = {
   whitefade80: 'rgba(255, 255, 255, 0.8)'
 };
 
-export const themeColors = {
-  ...colorsPalette,
-  ...generateDynamicColors(colorsPalette)
-};
+export default themeColors;

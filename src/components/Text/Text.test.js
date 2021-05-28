@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, screen } from '@testing-library/react';
-import theme from 'src/styles/theme';
+import { theme } from 'src/theme';
 import Text from 'src/components/Text';
 import { renderWithTheme } from 'src/private/test-utils/renderWithTheme';
 
@@ -18,19 +18,19 @@ describe('Text Component', () => {
 
   it('renders the component with the right variant', () => {
     renderWithTheme(
-      <Text variant="title.lg" ellipsis={2}>
+      <Text textStyle="title.lg" ellipsis={2}>
         {largeText}
       </Text>
     );
 
     expect(screen.getByText(largeText)).toHaveStyle(`
-      font-weight: ${theme.fontWeights.bold};
-      line-height: 40px;
+      font-weight: bold;
+       font-size: ${theme.fontSizes[6]};
     `);
   });
 
   it('renders the component as a link', () => {
-    renderWithTheme(<Text variant="link.cta">{largeText}</Text>);
+    renderWithTheme(<Text link="cta">{largeText}</Text>);
 
     expect(screen.getByText(largeText)).toHaveStyle(`
       border: 2px solid;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import composers from 'src/styles/utils/composers';
+import composers from 'src/utils/composers';
 
 const Box = styled.div`
   ${composers.box}

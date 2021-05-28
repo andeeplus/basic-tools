@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen, cleanup } from '@testing-library/react';
-import theme from 'src/styles/theme';
+import { theme } from 'src/theme';
 import Icon from 'src/components/Icon';
 import { renderWithTheme } from '../../private/test-utils/renderWithTheme';
 import iconPaths from './paths';

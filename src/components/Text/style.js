@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import composers from 'src/styles/utils/composers';
-import { variant } from 'styled-system';
-import textVariants from './variants';
+import composers from 'src/utils/composers';
+import { textStyle, variant } from 'styled-system';
 
 const ellipsis = (props) =>
   props.ellipsis &&
@@ -12,18 +11,27 @@ const ellipsis = (props) =>
     -webkit-line-clamp: ${props.ellipsis};
   `;
 
-const Text = styled.span`
+const Text = styled.span.attrs((props) => {
+  if (props.link)
+    return {
+      as: 'a',
+      href: props.href
+    };
+  return props;
+})`
   ${ellipsis};
-  ${variant({ variants: textVariants })}
+  ${textStyle}
   ${composers.text};
   ${composers.box};
+  ${variant({ prop: 'link', scale: 'linkStyles' })}
 `;
 
 Text.defaultProps = {
-  variant: 'paragraph',
+  variant: 'p.default',
   width: 'fit-content',
   transition: 'all 0.1s ease-in',
-  fontFamily: 'normal'
+  fontFamily: 'normal',
+  lineHeight: 'default'
 };
 
 export default Text;

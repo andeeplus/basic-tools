@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import composers from 'src/styles/utils/composers';
+import composers from 'src/utils/composers';
 
 const Toggle = ({ onChange, ...props }) => (
   <CheckBoxWrapper {...props}>

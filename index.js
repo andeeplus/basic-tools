@@ -2192,25 +2192,25 @@ var title = {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[7],
     fontWeight: 'bold',
-    marginBottom: 2
+    marginBottom: baseTheme.space[2]
   },
   lg: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[6],
     fontWeight: 'bold',
-    marginBottom: 2
+    marginBottom: baseTheme.space[2]
   },
   "default": {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[5],
     fontWeight: 'semibold',
-    marginBottom: 2
+    marginBottom: baseTheme.space[2]
   },
   sm: {
     fontFamily: 'title',
     fontSize: baseTheme.fontSizes[4],
     fontWeight: 'semibold',
-    marginBottom: 2
+    marginBottom: baseTheme.space[2]
   },
   xs: {
     fontFamily: 'title',
@@ -2275,6 +2275,7 @@ var linkStyles = {
   cta: {
     paddingLeft: baseTheme.space[1],
     paddingRight: baseTheme.space[1],
+    marginTop: '-2px',
     marginLeft: baseTheme.space[1],
     marginRight: baseTheme.space[1],
     cursor: 'pointer',
@@ -2283,7 +2284,6 @@ var linkStyles = {
     border: '2px solid',
     minHeight: '24px',
     borderRadius: '3px',
-    mt: '-2px',
     '&:hover': {
       backgroundColor: themeColors.gray[8],
       color: themeColors.gray[0],

@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup } from '@testing-library/react';
-import {theme} from 'src/theme';
+import { theme } from 'src/theme';
 import Button from 'src/components/Button';
 import { renderWithTheme } from '../../private/test-utils/renderWithTheme';
 

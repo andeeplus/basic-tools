@@ -39,7 +39,6 @@ const GlobalReset = createGlobalStyle`
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 
-    font-family: ${(props) => props.theme.fonts};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

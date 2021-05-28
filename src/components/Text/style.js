@@ -15,7 +15,7 @@ const Text = styled.span.attrs((props) => {
   if (props.link)
     return {
       as: 'a',
-      href: props.href
+      textDecoration: 'none'
     };
   return props;
 })`

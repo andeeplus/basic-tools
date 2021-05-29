@@ -1,6 +1,5 @@
 import React from 'react';
-import { cleanup, screen, waitFor } from '@testing-library/react';
-import { theme } from 'src/theme';
+import { cleanup, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Toggle from 'src/components/Toggle';
 import { renderWithTheme } from 'src/private/test-utils/renderWithTheme';

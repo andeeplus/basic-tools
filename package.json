@@ -66,7 +66,11 @@
     "lint": "eslint . --ignore-path .eslintignore --ext .js --ext .jsx",
     "lint:fix": "yarn run lint --fix",
     "start": "start-storybook -p 9001",
-    "test": "yarn jest --coverage",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "publish-to-npm": "npm publish --access=public "
+  },
+  "dependencies": {
+    "@testing-library/user-event": "^13.1.9"
   }
 }

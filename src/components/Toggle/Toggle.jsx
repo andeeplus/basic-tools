@@ -6,8 +6,8 @@ import composers from 'src/utils/composers';
 const Toggle = ({ onChange, ariaLabel, disabled, ...props }) => (
   <CheckBoxWrapper disabled={disabled} {...props}>
     <CheckBox
+      aria-label={ariaLabel}
       disabled={disabled}
-      ariaLabel={ariaLabel}
       id={ariaLabel}
       type="checkbox"
       onChange={onChange}
@@ -23,14 +23,21 @@ Toggle.propTypes = {
 };
 
 Toggle.defaultProps = {
-  ariaLabel: 'toggle-id'
+  ariaLabel: 'toggle-id',
+  disabled: false
 };
 
 const CheckBoxWrapper = styled.div`
   position: relative;
   ${composers.box}
-  border-color: ${(props) =>
-    props.disabled ? props.theme.colors.gray[1] : props.borderColor};
+  ${(props) =>
+    props.disabled
+      ? `
+     border-color: ${props.theme.colors.gray[1]};
+  `
+      : `
+     border-color: ${props.theme.colors.borderColor};
+  `}
 `;
 
 CheckBoxWrapper.defaultProps = {
@@ -44,7 +51,7 @@ CheckBoxWrapper.defaultProps = {
 };
 
 const CheckBoxLabel = styled.label`
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   &::after {
     z-index: 10;
     content: '';
@@ -75,6 +82,7 @@ CheckBoxLabel.defaultProps = {
 };
 
 const CheckBox = styled.input`
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   &:checked + ${CheckBoxLabel} {
     transition: all 0.2s ease-in;
     &::after {

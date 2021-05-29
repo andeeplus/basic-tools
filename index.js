@@ -49,22 +49,6 @@ function _objectSpread2(target) {
   return target;
 }
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -1978,8 +1962,8 @@ var Toggle = function Toggle(_ref) {
   return /*#__PURE__*/React__default['default'].createElement(CheckBoxWrapper, _extends({
     disabled: disabled
   }, props), /*#__PURE__*/React__default['default'].createElement(CheckBox, {
+    "aria-label": ariaLabel,
     disabled: disabled,
-    ariaLabel: ariaLabel,
     id: ariaLabel,
     type: "checkbox",
     onChange: onChange
@@ -1995,10 +1979,11 @@ Toggle.propTypes = {
   disabled: PropTypes.bool
 };
 Toggle.defaultProps = {
-  ariaLabel: 'toggle-id'
+  ariaLabel: 'toggle-id',
+  disabled: false
 };
-var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n  border-color: ", ";\n"])), composers.box, function (props) {
-  return props.disabled ? props.theme.colors.gray[1] : props.borderColor;
+var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n  ", "\n"])), composers.box, function (props) {
+  return props.disabled ? "\n     border-color: ".concat(props.theme.colors.gray[1], ";\n  ") : "\n     border-color: ".concat(props.theme.colors.borderColor, ";\n  ");
 });
 CheckBoxWrapper.defaultProps = {
   border: '2px solid',
@@ -2009,7 +1994,9 @@ CheckBoxWrapper.defaultProps = {
   maxWidth: '46px',
   m: 2
 };
-var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  &::after {\n    z-index: 10;\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: ", ";\n    transition: all 0.2s ease-in;\n  }\n  ", "\n"])), function (props) {
+var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: ", ";\n  &::after {\n    z-index: 10;\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: ", ";\n    transition: all 0.2s ease-in;\n  }\n  ", "\n"])), function (props) {
+  return props.disabled ? 'not-allowed' : 'pointer';
+}, function (props) {
   return props.disabled ? props.theme.colors.gray[4] : props.theme.colors.gray[6];
 }, function (props) {
   return props.disabled ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)' : '1px 3px 3px 1px rgba(0, 0, 0, 0.2)';
@@ -2023,7 +2010,9 @@ CheckBoxLabel.defaultProps = {
   borderRadius: '15px',
   bg: 'gray.3'
 };
-var CheckBox = styled__default['default'].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  &:checked + ", " {\n    transition: all 0.2s ease-in;\n    &::after {\n      content: '';\n      display: block;\n      border-radius: 50%;\n      width: 18px;\n      height: 18px;\n      margin-left: 21px;\n    }\n  }\n  &:not(:checked) + ", " {\n    background: ", ";\n  }\n"])), CheckBoxLabel, CheckBoxLabel, function (props) {
+var CheckBox = styled__default['default'].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  cursor: ", ";\n  &:checked + ", " {\n    transition: all 0.2s ease-in;\n    &::after {\n      content: '';\n      display: block;\n      border-radius: 50%;\n      width: 18px;\n      height: 18px;\n      margin-left: 21px;\n    }\n  }\n  &:not(:checked) + ", " {\n    background: ", ";\n  }\n"])), function (props) {
+  return props.disabled ? 'not-allowed' : 'pointer';
+}, CheckBoxLabel, CheckBoxLabel, function (props) {
   return props.disabled ? props.theme.colors.gray[1] : props.theme.colors.white;
 });
 CheckBox.defaultProps = {
@@ -2052,74 +2041,6 @@ TextArea.defaultProps = {
 
 var _templateObject;
 var GlobalReset = styled.createGlobalStyle(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n  }\n\n  ul,\n  ol {\n    padding: 0;\n  }\n\n  body,\n  h1,\n  h2,\n  h3,\n  h4,\n  p,\n  ul,\n  ol,\n  li,\n  figure,\n  figcaption,\n  blockquote,\n  dl,\n  dd {\n    margin: 0;\n  }\n\n  body {\n    scroll-behavior: smooth;\n    text-rendering: optimizeSpeed;\n    line-height: 1.5;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  ul,\n  ol {\n    list-style: none;\n  }\n\n  img {\n    max-width: 100%;\n    display: block;\n  }\n\n  input,\n  button,\n  textarea,\n  select {\n    font: inherit;\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    * {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n\n  html {\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  }\n"])));
-
-var getResponsiveGridByArea = function getResponsiveGridByArea(area, config) {
-  var mediaQueries = Object.keys(config);
-  var props = {};
-  mediaQueries.forEach(function (mq) {
-    var attributes = config[mq][area];
-    var keys = Object.keys(attributes);
-    keys.forEach(function (key) {
-      if (!props[key]) props[key] = [];
-      var valueToPush = attributes[key] !== undefined ? attributes[key] : 'hola';
-      props[key].push(valueToPush);
-    });
-  });
-  return props;
-};
-var createGridElement = function createGridElement(as, area, props, gridConfig) {
-  return /*#__PURE__*/React.createElement(Box, _objectSpread2(_objectSpread2({}, getResponsiveGridByArea(area, gridConfig)), {}, {
-    as: as
-  }, props));
-};
-
-var themeColors = {
-  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
-  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
-  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
-  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
-  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
-  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
-  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
-  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
-  black: '#1b1f23',
-  white: '#fff',
-  blackfade15: 'rgba(27, 31, 35, 0.15)',
-  blackfade20: 'rgba(27, 31, 35, 0.20)',
-  blackfade30: 'rgba(27,31,35,0.3)',
-  blackfade35: 'rgba(27, 31, 35, 0.35)',
-  blackfade50: 'rgba(27, 31, 35, 0.5)',
-  blackfade80: 'rgba(27, 31, 35, 0.8)',
-  blackfade90: '#000000ed',
-  whitefade15: 'rgba(255, 255, 255, 0.15)',
-  whitefade50: 'rgba(255, 255, 255, 0.50)',
-  whitefade80: 'rgba(255, 255, 255, 0.8)'
-};
-
-var getRandomElementFromArray = function getRandomElementFromArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
-};
-var getRandomSystemColor = function getRandomSystemColor(shouldBeHex) {
-  var choosenColors = ['gray', 'blue', 'green', 'orange', 'purple', 'red', 'yellow', 'pink'];
-  var levels = [3, 4, 5, 6, 7, 8, 9];
-  var color = getRandomElementFromArray(choosenColors);
-  var level = getRandomElementFromArray(levels);
-  if (shouldBeHex) return themeColors[color][level];
-  return "".concat(color, ".").concat(level);
-};
-var generateDynamicColors = function generateDynamicColors(colors) {
-  var dynamicColors = {};
-  var colorsArray = {};
-  Object.keys(colors).forEach(function (col) {
-    if (_typeof(colors[col]) === 'object') colorsArray[col] = colors[col];
-  });
-  Object.keys(colorsArray).forEach(function (col) {
-    colorsArray[col].forEach(function (c, index) {
-      dynamicColors["".concat(col, ".").concat(index)] = colorsArray[col][index];
-    });
-  });
-  return dynamicColors;
-};
 
 var baseTheme = {
   borderWidths: [0, '3px'],
@@ -2258,6 +2179,29 @@ var textStyles = {
   title: title
 };
 
+var themeColors = {
+  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
+  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
+  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
+  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
+  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
+  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
+  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
+  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
+  black: '#1b1f23',
+  white: '#fff',
+  blackfade15: 'rgba(27, 31, 35, 0.15)',
+  blackfade20: 'rgba(27, 31, 35, 0.20)',
+  blackfade30: 'rgba(27,31,35,0.3)',
+  blackfade35: 'rgba(27, 31, 35, 0.35)',
+  blackfade50: 'rgba(27, 31, 35, 0.5)',
+  blackfade80: 'rgba(27, 31, 35, 0.8)',
+  blackfade90: '#000000ed',
+  whitefade15: 'rgba(255, 255, 255, 0.15)',
+  whitefade50: 'rgba(255, 255, 255, 0.50)',
+  whitefade80: 'rgba(255, 255, 255, 0.8)'
+};
+
 var linkProps = {
   cursor: 'pointer',
   marginTop: '-2px',
@@ -2309,7 +2253,7 @@ var linkStyles = {
   }
 };
 
-var enhancedColors = _objectSpread2(_objectSpread2({}, themeColors), generateDynamicColors(themeColors));
+var enhancedColors = _objectSpread2({}, themeColors);
 
 var theme = _objectSpread2(_objectSpread2({}, baseTheme), {}, {
   textStyles: textStyles,
@@ -2330,11 +2274,6 @@ exports.Text = Text;
 exports.TextArea = TextArea;
 exports.Toggle = Toggle;
 exports.baseTheme = baseTheme;
-exports.createGridElement = createGridElement;
-exports.generateDynamicColors = generateDynamicColors;
-exports.getRandomElementFromArray = getRandomElementFromArray;
-exports.getRandomSystemColor = getRandomSystemColor;
-exports.getResponsiveGridByArea = getResponsiveGridByArea;
 exports.linkStyles = linkStyles;
 exports.textStyles = textStyles;
 exports.theme = theme;

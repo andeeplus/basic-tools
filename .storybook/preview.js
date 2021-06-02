@@ -1,11 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalReset, theme } from '../src';
+import { default as btTheme } from '../src/theme/theme';
+import GlobalReset from '../src/styles/GlobalReset';
+
 
 export const decorators = [
   (Story) => {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={btTheme}>
         <GlobalReset />
         <Story />
       </ThemeProvider>

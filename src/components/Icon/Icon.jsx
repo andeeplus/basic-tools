@@ -13,15 +13,8 @@ const Svg = styled.svg.withConfig({
 `;
 
 const Icon = forwardRef(
-  ({ title, size = 24, viewBox = '0 0 24 24', fill = 'gray.7', icon, ...props }, ref) => (
-    <Box
-      as="span"
-      justifyContent="center"
-      alignItems="center"
-      size={size}
-      ref={ref}
-      {...props}
-    >
+  ({ title, size = 24, viewBox = '0 0 24 24', fill = 'gray.9', icon, ...props }, ref) => (
+    <Box as="span" justifyContent="center" alignItems="center" ref={ref} {...props}>
       <Svg
         data-testid="bt__svg-icon"
         xmlns="http://www.w3.org/2000/svg"

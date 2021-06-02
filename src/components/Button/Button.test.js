@@ -3,34 +3,38 @@ import { cleanup } from '@testing-library/react';
 import { theme } from 'src/theme';
 import Button from 'src/components/Button';
 import { renderWithTheme } from '../../private/test-utils/renderWithTheme';
+import themeColors from '../../theme/themeColors';
 
 const buttonText = 'Click';
 
 describe('Button Component', () => {
   afterEach(() => cleanup());
 
-  it('renders correctly if variant is "filled"', () => {
+  it('renders correctly if variant is not declared', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="filled">
-        {buttonText}
-      </Button>
+      <Button data-testid="button">{buttonText}</Button>
     );
     expect(getByTestId('button')).toHaveStyle({
-      backgroundColor: theme.colors.black,
-      color: theme.colors.white
+      color: themeColors.white,
+      backgroundColor: themeColors.gray[8],
+      borderColor: themeColors.gray[9],
+      borderWidth: '2px',
+      borderStyle: 'solid'
     });
   });
 
-  it('renders correctly if variant is "outlined"', () => {
+  it('renders correctly if variant is "secondary"', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="outlined" bg="red.5">
+      <Button data-testid="button" variant="secondary">
         {buttonText}
       </Button>
     );
     expect(getByTestId('button')).toHaveStyle({
-      borderColor: theme.colors.red[5],
-      backgroundColor: 'transparent',
-      color: theme.colors.red[5]
+      color: themeColors.gray[7],
+      backgroundColor: themeColors.white,
+      borderColor: themeColors.gray[7],
+      borderWidth: '2px',
+      borderStyle: 'solid'
     });
   });
 
@@ -42,13 +46,15 @@ describe('Button Component', () => {
     );
     expect(getByTestId('button')).toHaveStyle({
       backgroundColor: 'transparent',
-      color: theme.colors.black
+      borderColor: 'transparent',
+      borderWidth: '2px',
+      borderStyle: 'solid'
     });
   });
 
   it('renders correctly if it is an icon', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="filled" icon="arrowDown">
+      <Button data-testid="button" variant="circle" icon="arrowDown">
         {buttonText}
       </Button>
     );
@@ -57,18 +63,20 @@ describe('Button Component', () => {
 
   it('renders correctly if button is disabled', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="filled" disabled>
+      <Button data-testid="button" disabled>
         {buttonText}
       </Button>
     );
     expect(getByTestId('button')).toHaveStyle({
-      opacity: 0.45
+      backgroundColor: themeColors.gray[2],
+      borderColor: themeColors.gray[2],
+      color: themeColors.gray[4]
     });
   });
 
-  it('renders correctly if button color is custom', () => {
+  it('renders correctly if button bg is custom', () => {
     const { getByTestId } = renderWithTheme(
-      <Button data-testid="button" variant="filled" bg="red.5" color="white">
+      <Button data-testid="button" bg="red.5">
         {buttonText}
       </Button>
     );

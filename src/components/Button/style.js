@@ -1,33 +1,24 @@
 import styled from 'styled-components';
-import { typography } from 'styled-system';
+import { typography, buttonStyle } from 'styled-system';
 import composers from 'src/utils/composers';
-import { enhancedHover } from './utils';
-import { variantProp } from './variants';
+import { buttonShapeVariant } from '../../theme/buttonStyles';
 
 export const InnerButton = styled.button`
   &:disabled {
     pointer-events: none;
   }
-  ${enhancedHover}
+  ${buttonShapeVariant}
+  ${buttonStyle}
   ${typography}
   ${composers.box}
-  ${(props) => variantProp(props)}
 `;
 
 InnerButton.defaultProps = {
-  px: 2,
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  cirsor: 'pointer',
-  transition: 'all ease-in 0.15s',
-  lineHeight: '16px',
+  cursor: 'pointer',
+  transition: 'all 0.15s ease-in',
   letterSpacing: '0.5',
   textAlign: 'center',
-  height: '40px',
-  border: '0',
-  borderRadius: '3px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   m: 2
 };

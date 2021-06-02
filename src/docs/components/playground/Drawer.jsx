@@ -54,8 +54,8 @@ const DrawerStory = () => {
                 : {})}
             >
               <Box flexDirection="column" p={3}>
-                <Text variant="title.lg">{`This is a ${position} drawer`}</Text>
-                <Text variant="p.default">{getSpecificInfoText(position)}</Text>
+                <Text textStyle="title.lg">{`This is a ${position} drawer`}</Text>
+                <Text textStyle="p.default">{getSpecificInfoText(position)}</Text>
               </Box>
             </Drawer>
           );
@@ -76,7 +76,7 @@ const DrawerStory = () => {
                 {position}
               </Button>
             ))}
-            <Button variant="outlined" mt={2} onClick={closeDrawer}>
+            <Button variant="secondary" mt={2} onClick={closeDrawer}>
               Close
             </Button>
           </Box>

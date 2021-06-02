@@ -2,31 +2,26 @@ import baseTheme from './baseTheme';
 
 const title = {
   xl: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[7],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   lg: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[6],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   default: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[5],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   sm: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[4],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   xs: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[3],
     fontWeight: 'bold',
     marginBottom: 1

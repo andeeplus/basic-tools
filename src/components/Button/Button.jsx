@@ -6,19 +6,7 @@ import Text from 'src/components/Text';
 import { InnerButton } from './style';
 
 const Button = forwardRef(
-  (
-    {
-      as = 'button',
-      icon,
-      variant = 'filled',
-      onClick,
-      children,
-      disabled,
-      loading,
-      ...props
-    },
-    ref
-  ) => {
+  ({ as = 'button', icon, onClick, children, disabled, loading, ...props }, ref) => {
     const buttonContent = useMemo(() => {
       if (loading) return <Spinner size={18} color="gray.2" />;
       if (icon) return <Icon icon={icon} fill="gray.0" />;
@@ -29,7 +17,6 @@ const Button = forwardRef(
       <InnerButton
         as={as}
         ref={ref}
-        variant={variant}
         onClick={onClick}
         disabled={disabled || loading}
         {...props}
@@ -41,10 +28,9 @@ const Button = forwardRef(
 );
 
 Button.defaultProps = {
-  variant: 'filled',
-  bg: 'black',
-  color: 'white',
-  fontFamily: 'title',
+  variant: 'primary',
+  shape: 'default.md',
+  fontFamily: 'normal',
   fontWeight: 500,
   cursor: 'pointer'
 };

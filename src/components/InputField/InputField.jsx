@@ -8,9 +8,10 @@ const InputField = ({ label, ...props }) => (
   <Box className="bt__input--container" flexDirection="column">
     {label && (
       <Text
+        ml={1}
         className="bt__input--label"
         color="gray.9"
-        variant="p.xs"
+        textStyle="p.xs"
         fontWeight="semibold"
       >
         {label}

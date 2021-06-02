@@ -7,70 +7,146 @@ import { Button, Icon } from '../../components';
 
 A simple button with some useful variants
 
-## Variant Filled
+# Variants
+
+## Primary
 
 <Canvas>
-  <Story name="default">
-    <Button bg="blue.7" variant="filled">
-      Filled
+  <Story name="default.lg">
+    <Button shape="default.lg">Primary lg</Button>
+  </Story>
+  <Story name="default.md">
+    <Button>Primary</Button>
+  </Story>
+  <Story name="default.sm">
+    <Button shape="default.sm">Primary sm</Button>
+  </Story>
+</Canvas>
+
+## Secondary
+
+<Canvas>
+  <Story name="secondary default.lg">
+    <Button variant="secondary" shape="default.lg">
+      Secondary lg
     </Button>
   </Story>
-  <Story name="disabled-default">
-    <Button bg="blue.7" variant="filled" disabled>
-      Disabled Default
+  <Story name="secondary default.md">
+    <Button variant="secondary">Secondary</Button>
+  </Story>
+  <Story name="secondary default.sm">
+    <Button variant="secondary" shape="default.sm">
+      Secondary sm
     </Button>
   </Story>
 </Canvas>
 
-## Variant Outlined
+## Text
 
 <Canvas>
-  <Story name="outlined">
-    <Button bg="blue.7" variant="outlined">
-      Outlined
+  <Story name="text lg">
+    <Button variant="text" shape="default.lg">
+      Primary lg
     </Button>
   </Story>
-  <Story name="disabled-outlined">
-    <Button bg="blue.7" variant="outlined" disabled>
-      Disabled Outlined
-    </Button>
+  <Story name="text md">
+    <Button variant="text">Primary</Button>
   </Story>
-</Canvas>
-
-## Variant Outlined
-
-<Canvas>
-  <Story name="text">
-    <Button bg="blue.7" variant="text">
-      Text Button
-    </Button>
-  </Story>
-  <Story name="disabled-text">
-    <Button bg="blue.7" variant="text" disabled>
-      Disabled Text Button
+  <Story name="text xs">
+    <Button variant="text" shape="default.sm">
+      Primary sm
     </Button>
   </Story>
 </Canvas>
 
-## Variant circle + Icon
+## Rest of variants
 
 <Canvas>
-  <Story name="circle-icon">
-    <Button bg="blue.7" variant="circle" icon="scratch" />
+  <Story name="danger default.lg">
+    <Button variant="danger">Danger</Button>
   </Story>
-  <Story name="circle-icon-disabled">
-    <Button bg="blue.7" variant="circle" icon="scratch" disabled />
+  <Story name="success default.lg">
+    <Button variant="success">Success</Button>
+  </Story>
+  <Story name="info default.lg">
+    <Button variant="info">Info</Button>
+  </Story>
+  <Story name="warning default.lg">
+    <Button variant="warning">Warning</Button>
   </Story>
 </Canvas>
 
-## Variant Squared + Icon
+# Shape
+
+## Circle
 
 <Canvas>
-  <Story name="squared-icon">
-    <Button bg="blue.7" variant="squared" icon="scratch" />
+  <Story name="circle.lg">
+    <Button shape="circle.lg" icon="website" />
   </Story>
-  <Story name="squared-icon-disabled">
-    <Button bg="blue.7" variant="squared" icon="scratch" disabled />
+  <Story name="circle.md">
+    <Button shape="circle.md" icon="website" />
+  </Story>
+  <Story name="circle.sm">
+    <Button shape="circle.sm" icon="website" />
+  </Story>
+  <Story name="secondary circle.lg">
+    <Button variant="secondary" shape="circle.lg" icon="website" />
+  </Story>
+  <Story name="secondary circle.md">
+    <Button variant="secondary" shape="circle.md" icon="website" />
+  </Story>
+  <Story name="secondary circle.sm">
+    <Button variant="secondary" shape="circle.sm" icon="website" />
+  </Story>
+</Canvas>
+
+## Squared
+
+<Canvas>
+  <Story name="squared.lg">
+    <Button shape="squared.lg" icon="website" />
+  </Story>
+  <Story name="squared.md">
+    <Button shape="squared.md" icon="website" />
+  </Story>
+  <Story name="squared.sm">
+    <Button shape="squared.sm" icon="website" />
+  </Story>
+  <Story name="secondary squared.lg">
+    <Button variant="secondary" shape="squared.lg" icon="website" />
+  </Story>
+  <Story name="secondary squared.md">
+    <Button variant="secondary" shape="squared.md" icon="website" />
+  </Story>
+  <Story name="secondary squared.sm">
+    <Button variant="secondary" shape="squared.sm" icon="website" />
+  </Story>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+  <Story name="default disabled">
+    <Button variant="text" disabled>
+      Primary
+    </Button>
+  </Story>
+  <Story name="secondary disabled">
+    <Button variant="secondary" disabled>
+      Secondary
+    </Button>
+  </Story>
+  <Story name="text disabled">
+    <Button variant="text" disabled>
+      Text
+    </Button>
+  </Story>
+  <Story name="secondary circle.md disabled">
+    <Button shape="circle.md" icon="website" disabled />
+  </Story>
+  <Story name="secondary squared.md disabled">
+    <Button shape="squared.md" icon="website" disabled />
   </Story>
 </Canvas>
 

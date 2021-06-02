@@ -12,25 +12,31 @@ const ellipsis = (props) =>
   `;
 
 const Text = styled.span.attrs((props) => {
+  const isTitle = props.textStyle.includes('title');
   if (props.link)
     return {
       as: 'a',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      fontFamily: isTitle ? props.theme.fonts.title : props.theme.fonts.normal
     };
-  return props;
+
+  if (isTitle) {
+    return { fontFamily: props.theme.fonts.title };
+  }
+
+  return { fontFamily: props.theme.fonts.normal };
 })`
+  ${composers.box};
+  ${composers.text};
   ${ellipsis};
   ${textStyle}
-  ${composers.text};
-  ${composers.box};
   ${variant({ prop: 'link', scale: 'linkStyles' })}
 `;
 
 Text.defaultProps = {
-  variant: 'p.default',
+  textStyle: 'p.default',
   width: 'fit-content',
   transition: 'all 0.1s ease-in',
-  fontFamily: 'normal',
   lineHeight: 'default'
 };
 

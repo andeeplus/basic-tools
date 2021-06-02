@@ -1,4 +1,5 @@
 export { default as baseTheme } from './baseTheme';
+export * as buttonStyles from './buttonStyles';
 export { default as composers } from './composers';
 export { default as textStyles } from './textStyles';
 export { default as linkStyles } from './linkStyles';

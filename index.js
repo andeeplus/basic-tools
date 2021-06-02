@@ -1495,7 +1495,7 @@ var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       _ref$viewBox = _ref.viewBox,
       viewBox = _ref$viewBox === void 0 ? '0 0 24 24' : _ref$viewBox,
       _ref$fill = _ref.fill,
-      fill = _ref$fill === void 0 ? 'gray.7' : _ref$fill,
+      fill = _ref$fill === void 0 ? 'gray.9' : _ref$fill,
       icon = _ref.icon,
       props = _objectWithoutProperties(_ref, ["title", "size", "viewBox", "fill", "icon"]);
 
@@ -1503,7 +1503,6 @@ var Icon = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     as: "span",
     justifyContent: "center",
     alignItems: "center",
-    size: size,
     ref: ref
   }, props), /*#__PURE__*/React__default['default'].createElement(Svg, {
     "data-testid": "bt__svg-icon",
@@ -1531,149 +1530,352 @@ var ellipsis = function ellipsis(props) {
 };
 
 var Text = styled__default['default'].span.attrs(function (props) {
+  var isTitle = props.textStyle.includes('title');
   if (props.link) return {
     as: 'a',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    fontFamily: isTitle ? props.theme.fonts.title : props.theme.fonts.normal
   };
-  return props;
-})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", ";\n  ", ";\n  ", "\n"])), ellipsis, styledSystem.textStyle, composers.text, composers.box, styledSystem.variant({
+
+  if (isTitle) {
+    return {
+      fontFamily: props.theme.fonts.title
+    };
+  }
+
+  return {
+    fontFamily: props.theme.fonts.normal
+  };
+})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", ";\n  ", ";\n  ", "\n  ", "\n"])), composers.box, composers.text, ellipsis, styledSystem.textStyle, styledSystem.variant({
   prop: 'link',
   scale: 'linkStyles'
 }));
 Text.defaultProps = {
-  variant: 'p.default',
+  textStyle: 'p.default',
   width: 'fit-content',
   transition: 'all 0.1s ease-in',
-  fontFamily: 'normal',
   lineHeight: 'default'
 };
 
-// eslint-disable-next-line import/prefer-default-export
-var enhancedHover = "\n  &:hover {\n    filter: brightness(130%);\n  }\n  &:active {\n    filter: brightness(95%);\n  }\n";
-
-var filled$1 = function filled(props) {
-  return {
-    fill: props.color,
-    '&:hover': {
-      boxShadow: 'medium'
-    },
-    '&:disabled': {
-      opacity: 0.45,
-      boxShadow: 'none'
-    }
-  };
+var baseTheme = {
+  borderWidths: [0, '3px'],
+  breakpoints: ['444px', '768px', '1080px', '1640px'],
+  fonts: {
+    normal: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    title: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
+  },
+  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28px', '34px', '40px', '48px'],
+  fontWeights: {
+    light: 100,
+    regular: 400,
+    semibold: 600,
+    bold: 700
+  },
+  lineHeights: {
+    condensedUltra: 1,
+    condensed: 1.25,
+    "default": 1.5
+  },
+  radii: ['0', '3px', '6px', '9px'],
+  shadows: {
+    xs: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14)',
+    sm: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.14)',
+    md: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.17)',
+    lg: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.17)',
+    xl: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.19)'
+  },
+  space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px']
 };
 
-/* eslint-disable no-dupe-keys */
-var outlined = function outlined(props) {
-  var _hover;
+var themeColors = {
+  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
+  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
+  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
+  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
+  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
+  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
+  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
+  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
+  black: '#1b1f23',
+  white: '#fff',
+  blackfade15: 'rgba(27, 31, 35, 0.15)',
+  blackfade20: 'rgba(27, 31, 35, 0.20)',
+  blackfade30: 'rgba(27,31,35,0.3)',
+  blackfade35: 'rgba(27, 31, 35, 0.35)',
+  blackfade50: 'rgba(27, 31, 35, 0.5)',
+  blackfade80: 'rgba(27, 31, 35, 0.8)',
+  blackfade90: '#000000ed',
+  whitefade15: 'rgba(255, 255, 255, 0.15)',
+  whitefade50: 'rgba(255, 255, 255, 0.50)',
+  whitefade80: 'rgba(255, 255, 255, 0.8)'
+};
 
-  return {
-    color: props.bg,
-    fill: props.bg,
-    bg: 'transparent',
-    borderStyle: 'solid',
+var disabledStyles = {
+  backgroundColor: themeColors.gray[2],
+  borderColor: themeColors.gray[2],
+  color: themeColors.gray[4],
+  '& svg > path': {
+    fill: themeColors.gray[4]
+  }
+};
+var commonDefault = {
+  borderWidth: '2px',
+  borderStyle: 'solid'
+};
+var buttonStyles = {
+  text: {
+    color: themeColors.black,
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
     borderWidth: '2px',
-    borderColor: props.bg,
-    display: 'flex',
-    '&:hover': (_hover = {
-      bg: props.bg,
-      color: props.color,
-      fill: props.color,
-      borderColor: props.bg,
-      boxShadow: 'medium'
-    }, _defineProperty(_hover, "color", 'white'), _defineProperty(_hover, "fill", 'white'), _hover),
-    '&:disabled': {
-      bg: 'transparent',
-      borderColor: 'gray.4',
-      color: 'gray.4',
-      fill: 'gray.4',
-      boxShadow: 'none'
-    }
-  };
-};
-
-var text = function text(props) {
-  return {
-    bg: 'transparent',
-    color: props.color !== 'white' ? props.color : props.theme.colors.black,
-    fill: props.color !== 'white' ? props.color : props.theme.colors.black,
-    '&:hover': {
-      bg: 'gray.2'
+    borderStyle: 'solid',
+    '& svg > path': {
+      fill: themeColors.black
     },
-    '&:disabled': {
-      color: 'gray.4',
-      fill: 'gray.4',
-      boxShadow: 'none'
-    }
-  };
-};
-
-var filled = function filled(props) {
-  return {
-    fill: props.color,
-    minWidth: '40px',
-    width: '40px',
-    height: '40px',
     '&:hover': {
-      boxShadow: 'medium'
+      backgroundColor: themeColors.gray[1],
+      borderColor: themeColors.gray[1]
     },
-    '&:disabled': {
-      opacity: 0.65,
-      boxShadow: 'none'
-    }
-  };
-};
-
-var circle = function circle(props) {
-  return {
-    fill: props.color,
-    minWidth: '40px',
-    width: '40px',
-    height: '40px',
-    borderRadius: '50%',
+    '&:active': {
+      backgroundColor: themeColors.gray[2],
+      borderColor: themeColors.gray[2]
+    },
+    '&:disabled': disabledStyles
+  },
+  primary: _objectSpread2(_objectSpread2({
+    color: themeColors.white,
+    backgroundColor: themeColors.gray[8],
+    borderColor: themeColors.gray[9]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.white
+    },
     '&:hover': {
-      boxShadow: 'medium'
+      backgroundColor: themeColors.gray[7],
+      fill: themeColors.white,
+      borderColor: themeColors.gray[7]
     },
-    '&:disabled': {
-      opacity: 0.45,
-      boxShadow: 'none'
+    '&:active': {
+      color: themeColors.white,
+      fill: themeColors.white,
+      backgroundColor: themeColors.gray[8],
+      borderColor: themeColors.gray[8]
+    },
+    '&:disabled': disabledStyles
+  }),
+  secondary: _objectSpread2(_objectSpread2({
+    color: themeColors.gray[7],
+    backgroundColor: themeColors.white,
+    borderColor: themeColors.gray[7]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.gray[7]
+    },
+    '&:hover': {
+      color: themeColors.white,
+      fill: themeColors.white,
+      backgroundColor: themeColors.gray[7],
+      borderColor: themeColors.gray[7],
+      '& svg > path': {
+        fill: themeColors.white
+      }
+    },
+    '&:active': {
+      color: themeColors.white,
+      fill: themeColors.white,
+      backgroundColor: themeColors.gray[8],
+      borderColor: themeColors.gray[8]
+    },
+    '&:disabled': disabledStyles
+  }),
+  danger: _objectSpread2(_objectSpread2({
+    color: themeColors.white,
+    backgroundColor: themeColors.red[4],
+    borderColor: themeColors.red[4]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.white
+    },
+    '&:hover': {
+      backgroundColor: themeColors.red[5],
+      borderColor: themeColors.red[5]
+    },
+    '&:active': {
+      backgroundColor: themeColors.red[6],
+      borderColor: themeColors.red[6]
+    },
+    '&:disabled': disabledStyles
+  }),
+  warning: _objectSpread2(_objectSpread2({
+    color: themeColors.red[6],
+    backgroundColor: themeColors.yellow[4],
+    borderColor: themeColors.yellow[4]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.red[6]
+    },
+    '&:hover': {
+      backgroundColor: themeColors.yellow[5],
+      borderColor: themeColors.yellow[5]
+    },
+    '&:active': {
+      backgroundColor: themeColors.yellow[6],
+      borderColor: themeColors.yellow[6]
+    },
+    '&:disabled': disabledStyles
+  }),
+  info: _objectSpread2(_objectSpread2({
+    color: themeColors.white,
+    backgroundColor: themeColors.blue[4],
+    borderColor: themeColors.blue[4]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.white
+    },
+    '&:hover': {
+      backgroundColor: themeColors.blue[5],
+      borderColor: themeColors.blue[5]
+    },
+    '&:active': {
+      backgroundColor: themeColors.blue[6],
+      borderColor: themeColors.blue[6]
+    },
+    '&:disabled': disabledStyles
+  }),
+  success: _objectSpread2(_objectSpread2({
+    color: themeColors.white,
+    backgroundColor: themeColors.green[7],
+    borderColor: themeColors.green[7]
+  }, commonDefault), {}, {
+    '& svg > path': {
+      fill: themeColors.green
+    },
+    '&:hover': {
+      backgroundColor: themeColors.green[6],
+      borderColor: themeColors.green[6]
+    },
+    '&:active': {
+      backgroundColor: themeColors.green[7],
+      borderColor: themeColors.green[7]
+    },
+    '&:disabled': disabledStyles
+  })
+};
+var buttonShapeVariant = styledSystem.variant({
+  prop: 'shape',
+  key: 'buttonShape'
+});
+var buttonShape = {
+  "default": {
+    sm: {
+      height: '32px',
+      fontSize: baseTheme.fontSizes[1],
+      lineHeight: baseTheme.fontSizes[1],
+      borderRadius: baseTheme.radii[1],
+      padding: "0 4px"
+    },
+    md: {
+      height: '40px',
+      fontSize: baseTheme.fontSizes[2],
+      borderRadius: baseTheme.radii[1],
+      padding: '0 16px'
+    },
+    lg: {
+      height: '48px',
+      fontSize: baseTheme.fontSizes[3],
+      lineHeight: baseTheme.fontSizes[6],
+      borderRadius: baseTheme.radii[2],
+      padding: "0 32px"
     }
-  };
+  },
+  circle: {
+    sm: {
+      height: '32px',
+      width: '32px',
+      maxWidth: '32px',
+      borderRadius: '50%',
+      fontSize: baseTheme.fontSizes[1],
+      '& svg': {
+        width: '24px',
+        height: '24px'
+      }
+    },
+    md: {
+      height: '40px',
+      width: '40px',
+      maxWidth: '40px',
+      borderRadius: '50%',
+      fontSize: baseTheme.fontSizes[2],
+      '& svg': {
+        width: '32px',
+        height: '32px'
+      }
+    },
+    lg: {
+      height: '48px',
+      width: '48px',
+      maxWidth: '48px',
+      borderRadius: '50%',
+      fontSize: baseTheme.fontSizes[3],
+      '& svg': {
+        width: '40px',
+        height: '40px'
+      }
+    }
+  },
+  squared: {
+    sm: {
+      height: '32px',
+      width: '32px',
+      maxWidth: '32px',
+      borderRadius: baseTheme.radii[1],
+      fontSize: baseTheme.fontSizes[1],
+      '& svg': {
+        width: '24px',
+        height: '24px'
+      }
+    },
+    md: {
+      height: '40px',
+      width: '40px',
+      maxWidth: '40px',
+      borderRadius: baseTheme.radii[1],
+      fontSize: baseTheme.fontSizes[2],
+      '& svg': {
+        width: '32px',
+        height: '32px'
+      }
+    },
+    lg: {
+      height: '48px',
+      width: '48px',
+      maxWidth: '48px',
+      borderRadius: baseTheme.radii[1],
+      fontSize: baseTheme.fontSizes[3],
+      '& svg': {
+        width: '40px',
+        height: '40px'
+      }
+    }
+  }
 };
 
-var type = function type(props) {
-  return styledSystem.variant({
-    prop: 'variant',
-    variants: {
-      filled: filled$1(props),
-      outlined: outlined(props),
-      text: text(props),
-      squared: filled(props),
-      circle: circle(props)
-    }
-  });
-};
+var buttonStyles$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  buttonStyles: buttonStyles,
+  buttonShapeVariant: buttonShapeVariant,
+  buttonShape: buttonShape
+});
 
 var _templateObject$6;
-var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), enhancedHover, styledSystem.typography, composers.box, function (props) {
-  return type(props);
-});
+var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), buttonShapeVariant, styledSystem.buttonStyle, styledSystem.typography, composers.box);
 InnerButton.defaultProps = {
-  px: 2,
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  cirsor: 'pointer',
-  transition: 'all ease-in 0.15s',
-  lineHeight: '16px',
+  cursor: 'pointer',
+  transition: 'all 0.15s ease-in',
   letterSpacing: '0.5',
   textAlign: 'center',
-  height: '40px',
-  border: '0',
-  borderRadius: '3px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   m: 2
 };
 
@@ -1681,13 +1883,11 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var _ref$as = _ref.as,
       as = _ref$as === void 0 ? 'button' : _ref$as,
       icon = _ref.icon,
-      _ref$variant = _ref.variant,
-      variant = _ref$variant === void 0 ? 'filled' : _ref$variant,
       onClick = _ref.onClick,
       children = _ref.children,
       disabled = _ref.disabled,
       loading = _ref.loading,
-      props = _objectWithoutProperties(_ref, ["as", "icon", "variant", "onClick", "children", "disabled", "loading"]);
+      props = _objectWithoutProperties(_ref, ["as", "icon", "onClick", "children", "disabled", "loading"]);
 
   var buttonContent = React.useMemo(function () {
     if (loading) return /*#__PURE__*/React__default['default'].createElement(Spinner, {
@@ -1705,16 +1905,14 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   return /*#__PURE__*/React__default['default'].createElement(InnerButton, _extends({
     as: as,
     ref: ref,
-    variant: variant,
     onClick: onClick,
     disabled: disabled || loading
   }, props), buttonContent);
 });
 Button.defaultProps = {
-  variant: 'filled',
-  bg: 'black',
-  color: 'white',
-  fontFamily: 'title',
+  variant: 'primary',
+  shape: 'default.md',
+  fontFamily: 'normal',
   fontWeight: 500,
   cursor: 'pointer'
 };
@@ -1855,9 +2053,10 @@ var InputField = function InputField(_ref) {
     className: "bt__input--container",
     flexDirection: "column"
   }, label && /*#__PURE__*/React__default['default'].createElement(Text, {
+    ml: 1,
     className: "bt__input--label",
     color: "gray.9",
-    variant: "p.xs",
+    textStyle: "p.xs",
     fontWeight: "semibold"
   }, label), /*#__PURE__*/React__default['default'].createElement(InputField$1, props));
 };
@@ -2042,36 +2241,6 @@ TextArea.defaultProps = {
 var _templateObject;
 var GlobalReset = styled.createGlobalStyle(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n  }\n\n  ul,\n  ol {\n    padding: 0;\n  }\n\n  body,\n  h1,\n  h2,\n  h3,\n  h4,\n  p,\n  ul,\n  ol,\n  li,\n  figure,\n  figcaption,\n  blockquote,\n  dl,\n  dd {\n    margin: 0;\n  }\n\n  body {\n    scroll-behavior: smooth;\n    text-rendering: optimizeSpeed;\n    line-height: 1.5;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  ul,\n  ol {\n    list-style: none;\n  }\n\n  img {\n    max-width: 100%;\n    display: block;\n  }\n\n  input,\n  button,\n  textarea,\n  select {\n    font: inherit;\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    * {\n      animation-duration: 0.01ms !important;\n      animation-iteration-count: 1 !important;\n      transition-duration: 0.01ms !important;\n      scroll-behavior: auto !important;\n    }\n  }\n\n  html {\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  }\n"])));
 
-var baseTheme = {
-  borderWidths: [0, '3px'],
-  breakpoints: ['444px', '768px', '1080px', '1640px'],
-  fonts: {
-    normal: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
-    title: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
-  },
-  fontSizes: ['12px', '14px', '16px', '20px', '24px', '28px', '34px', '40px', '48px'],
-  fontWeights: {
-    light: 100,
-    regular: 400,
-    semibold: 600,
-    bold: 700
-  },
-  lineHeights: {
-    condensedUltra: 1,
-    condensed: 1.25,
-    "default": 1.5
-  },
-  radii: ['0', '3px', '6px', '9px'],
-  shadows: {
-    xs: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-    sm: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
-    md: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-    lg: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
-    xl: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)'
-  },
-  space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px']
-};
-
 var customTextProps = styledSystem.system({
   cursor: {
     property: 'cursor'
@@ -2127,31 +2296,26 @@ var customBoxProps = styledSystem.system({
 
 var title = {
   xl: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[7],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   lg: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[6],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   "default": {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[5],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   sm: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[4],
     fontWeight: 'bold',
     marginBottom: baseTheme.space[2]
   },
   xs: {
-    fontFamily: 'title',
     fontSize: baseTheme.fontSizes[3],
     fontWeight: 'bold',
     marginBottom: 1
@@ -2177,29 +2341,6 @@ var p = {
 var textStyles = {
   p: p,
   title: title
-};
-
-var themeColors = {
-  gray: ['#fafbfc', '#f6f8fa', '#e1e4e8', '#d1d5da', '#959da5', '#6a737d', '#586069', '#444d56', '#2f363d', '#24292e'],
-  blue: ['#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
-  green: ['#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
-  orange: ['#fff8f2', '#ffebda', '#ffd1ac', '#ffab70', '#fb8532', '#f66a0a', '#e36209', '#d15704', '#c24e00', '#a04100'],
-  purple: ['#f5f0ff', '#e6dcfd', '#d1bcf9', '#b392f0', '#8a63d2', '#6f42c1', '#5a32a3', '#4c2889', '#3a1d6e', '#29134e'],
-  red: ['#ffeef0', '#ffdce0', '#fdaeb7', '#f97583', '#ea4a5a', '#d73a49', '#cb2431', '#b31d28', '#9e1c23', '#86181d'],
-  yellow: ['#fffdef', '#fffbdd', '#fff5b1', '#ffea7f', '#ffdf5d', '#ffd33d', '#f9c513', '#dbab09', '#b08800', '#735c0f'],
-  pink: ['#ffeef8', '#fedbf0', '#f9b3dd', '#f692ce', '#ec6cb9', '#ea4aaa', '#d03592', '#b93a86', '#99306f', '#6d224f'],
-  black: '#1b1f23',
-  white: '#fff',
-  blackfade15: 'rgba(27, 31, 35, 0.15)',
-  blackfade20: 'rgba(27, 31, 35, 0.20)',
-  blackfade30: 'rgba(27,31,35,0.3)',
-  blackfade35: 'rgba(27, 31, 35, 0.35)',
-  blackfade50: 'rgba(27, 31, 35, 0.5)',
-  blackfade80: 'rgba(27, 31, 35, 0.8)',
-  blackfade90: '#000000ed',
-  whitefade15: 'rgba(255, 255, 255, 0.15)',
-  whitefade50: 'rgba(255, 255, 255, 0.50)',
-  whitefade80: 'rgba(255, 255, 255, 0.8)'
 };
 
 var linkProps = {
@@ -2256,6 +2397,8 @@ var linkStyles = {
 var enhancedColors = _objectSpread2({}, themeColors);
 
 var theme = _objectSpread2(_objectSpread2({}, baseTheme), {}, {
+  buttons: buttonStyles,
+  buttonShape: buttonShape,
   textStyles: textStyles,
   linkStyles: linkStyles,
   colors: enhancedColors
@@ -2274,6 +2417,7 @@ exports.Text = Text;
 exports.TextArea = TextArea;
 exports.Toggle = Toggle;
 exports.baseTheme = baseTheme;
+exports.buttonStyles = buttonStyles$1;
 exports.linkStyles = linkStyles;
 exports.textStyles = textStyles;
 exports.theme = theme;

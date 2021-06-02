@@ -1,7 +1,15 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalReset, theme } from '../src';
+import { default as btTheme } from '../src/theme/theme';
+import GlobalReset from '../src/styles/GlobalReset';
 
+const theme = {
+  ...btTheme,
+  fonts: {
+    normal: "Courier",
+    title: "Helvetica"
+  }
+};
 export const decorators = [
   (Story) => {
     return (

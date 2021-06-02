@@ -3,7 +3,6 @@ import { cleanup } from '@testing-library/react';
 import { theme } from 'src/theme';
 import Button from 'src/components/Button';
 import { renderWithTheme } from '../../private/test-utils/renderWithTheme';
-import { buttonStyles } from '../../theme/buttonStyles';
 import themeColors from '../../theme/themeColors';
 
 const buttonText = 'Click';
@@ -70,9 +69,8 @@ describe('Button Component', () => {
     );
     expect(getByTestId('button')).toHaveStyle({
       backgroundColor: themeColors.gray[2],
-      borderColor: themeColors.gray[4],
-      color: themeColors.gray[4],
-      boxShadow: 'none'
+      borderColor: themeColors.gray[2],
+      color: themeColors.gray[4]
     });
   });
 

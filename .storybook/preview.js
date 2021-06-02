@@ -3,17 +3,11 @@ import { ThemeProvider } from 'styled-components';
 import { default as btTheme } from '../src/theme/theme';
 import GlobalReset from '../src/styles/GlobalReset';
 
-const theme = {
-  ...btTheme,
-  fonts: {
-    normal: "Courier",
-    title: "Helvetica"
-  }
-};
+
 export const decorators = [
   (Story) => {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={btTheme}>
         <GlobalReset />
         <Story />
       </ThemeProvider>

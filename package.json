@@ -67,8 +67,7 @@
     "lint:fix": "yarn run lint --fix",
     "start": "start-storybook -p 9001",
     "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "publish-to-npm": "npm publish --access=public "
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@testing-library/user-event": "^13.1.9"

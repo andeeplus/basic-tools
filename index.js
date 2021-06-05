@@ -1546,10 +1546,10 @@ var Text = styled__default['default'].span.attrs(function (props) {
   return {
     fontFamily: props.theme.fonts.normal
   };
-})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", ";\n  ", ";\n  ", "\n  ", "\n"])), composers.box, composers.text, ellipsis, styledSystem.textStyle, styledSystem.variant({
+})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.textStyle, styledSystem.variant({
   prop: 'link',
   scale: 'linkStyles'
-}));
+}), composers.text, composers.box);
 Text.defaultProps = {
   textStyle: 'p.default',
   width: 'fit-content',
@@ -1783,7 +1783,7 @@ var buttonShape = {
     lg: {
       height: '48px',
       fontSize: baseTheme.fontSizes[3],
-      lineHeight: baseTheme.fontSizes[6],
+      lineHeight: baseTheme.fontSizes[3],
       borderRadius: baseTheme.radii[2],
       padding: "0 32px"
     }
@@ -1796,8 +1796,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
-        width: '24px',
-        height: '24px'
+        width: '20px',
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -1807,8 +1808,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
-        width: '32px',
-        height: '32px'
+        width: '24px',
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -1818,8 +1820,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
-        width: '40px',
-        height: '40px'
+        width: '32px',
+        height: '32px',
+        minWidth: '32px'
       }
     }
   },
@@ -1831,8 +1834,9 @@ var buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
-        width: '24px',
-        height: '24px'
+        width: '20px',
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -1842,8 +1846,9 @@ var buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
-        width: '32px',
-        height: '32px'
+        width: '24px',
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -1854,7 +1859,8 @@ var buttonShape = {
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
         width: '40px',
-        height: '40px'
+        height: '40px',
+        minWidth: '40px'
       }
     }
   }

@@ -26,11 +26,11 @@ const Text = styled.span.attrs((props) => {
 
   return { fontFamily: props.theme.fonts.normal };
 })`
-  ${composers.box};
-  ${composers.text};
   ${ellipsis};
   ${textStyle}
   ${variant({ prop: 'link', scale: 'linkStyles' })}
+  ${composers.text};
+  ${composers.box};
 `;
 
 Text.defaultProps = {

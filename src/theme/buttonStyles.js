@@ -1,4 +1,4 @@
-import { variant } from 'styled-system';
+import { minWidth, variant } from 'styled-system';
 import baseTheme from './baseTheme';
 import themeColors from './themeColors';
 
@@ -193,7 +193,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
         width: '20px',
-        height: '20px'
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -204,7 +205,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
         width: '24px',
-        height: '24px'
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -215,7 +217,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
         width: '32px',
-        height: '32px'
+        height: '32px',
+        minWidth: '32px'
       }
     }
   },
@@ -228,7 +231,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
         width: '20px',
-        height: '20px'
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -239,7 +243,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
         width: '24px',
-        height: '24px'
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -250,7 +255,8 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
         width: '40px',
-        height: '40px'
+        height: '40px',
+        minWidth: '40px'
       }
     }
   }

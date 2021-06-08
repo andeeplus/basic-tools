@@ -33,7 +33,7 @@ const CheckBoxWrapper = styled.div`
   ${(props) =>
     props.disabled
       ? `
-     border-color: ${props.theme.colors.gray[1]};
+     border-color: ${props.theme.colors.gray[2]};
   `
       : `
      border-color: ${props.theme.colors.borderColor};
@@ -48,6 +48,7 @@ CheckBoxWrapper.defaultProps = {
   position: 'relative',
   width: '46px',
   maxWidth: '46px',
+  height: '26px',
   m: 2
 };
 
@@ -66,7 +67,7 @@ const CheckBoxLabel = styled.label`
     box-shadow: ${(props) =>
       props.disabled
         ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)'
-        : '1px 3px 3px 1px rgba(0, 0, 0, 0.2)'};
+        : '1px 2px 2px 1px rgba(0, 0, 0, 0.2)'};
     transition: all 0.2s ease-in;
   }
   ${composers.box}
@@ -75,9 +76,9 @@ const CheckBoxLabel = styled.label`
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
   top: '-1px',
-  left: 0,
-  width: '43px',
-  height: '25px',
+  left: '-1px',
+  width: '44px',
+  height: '24px',
   borderRadius: '15px',
   bg: 'gray.3'
 };

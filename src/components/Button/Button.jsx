@@ -2,7 +2,6 @@ import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from 'src/components/Spinner';
 import Icon from 'src/components/Icon';
-import Text from 'src/components/Text';
 import { InnerButton } from './style';
 
 const Button = forwardRef(

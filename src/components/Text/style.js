@@ -36,7 +36,7 @@ const Text = styled.span.attrs((props) => {
 Text.defaultProps = {
   textStyle: 'p.default',
   width: 'fit-content',
-  transition: 'all 0.1s ease-in',
+  transition: 'all 0.2s ease-in',
   lineHeight: 'default'
 };
 

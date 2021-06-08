@@ -1523,40 +1523,6 @@ Icon.propTypes = {
   title: PropTypes.string
 };
 
-var _templateObject$7;
-
-var ellipsis = function ellipsis(props) {
-  return props.ellipsis && "\n    display: -webkit-box;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: ".concat(props.ellipsis, ";\n  ");
-};
-
-var Text = styled__default['default'].span.attrs(function (props) {
-  var isTitle = props.textStyle.includes('title');
-  if (props.link) return {
-    as: 'a',
-    textDecoration: 'none',
-    fontFamily: isTitle ? props.theme.fonts.title : props.theme.fonts.normal
-  };
-
-  if (isTitle) {
-    return {
-      fontFamily: props.theme.fonts.title
-    };
-  }
-
-  return {
-    fontFamily: props.theme.fonts.normal
-  };
-})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.textStyle, styledSystem.variant({
-  prop: 'link',
-  scale: 'linkStyles'
-}), composers.text, composers.box);
-Text.defaultProps = {
-  textStyle: 'p.default',
-  width: 'fit-content',
-  transition: 'all 0.1s ease-in',
-  lineHeight: 'default'
-};
-
 var baseTheme = {
   borderWidths: [0, '3px'],
   breakpoints: ['444px', '768px', '1080px', '1640px'],
@@ -1873,8 +1839,8 @@ var buttonStyles$1 = /*#__PURE__*/Object.freeze({
   buttonShape: buttonShape
 });
 
-var _templateObject$6;
-var InnerButton = styled__default['default'].button(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), buttonShapeVariant, styledSystem.buttonStyle, styledSystem.typography, composers.box);
+var _templateObject$7;
+var InnerButton = styled__default['default'].button(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  &:disabled {\n    pointer-events: none;\n  }\n  ", "\n  ", "\n  ", "\n  ", "\n"])), buttonShapeVariant, styledSystem.buttonStyle, styledSystem.typography, composers.box);
 InnerButton.defaultProps = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
@@ -1960,14 +1926,14 @@ var defaultPlacements = {
   }
 };
 
-var _templateObject$5, _templateObject2$1;
+var _templateObject$6, _templateObject2$1;
 /* https://github.com/GoogleChrome/lighthouse/issues/10908 
   In the home-next I noticed an issue with lighthouse regarding the visibility of the drawer content.
   I'm going to remove this comment once everything will be tested in front.
   display: ${(props) => (props.open ? 'block' : 'none')};
 */
 
-var DrawerWrapper = styled__default['default'](Box)(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteral(["\n  display: block;\n  transform: ", ";\n"])), function (props) {
+var DrawerWrapper = styled__default['default'](Box)(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteral(["\n  display: block;\n  transform: ", ";\n"])), function (props) {
   return !props.open ? transforms[props.side] : null;
 });
 DrawerWrapper.displayName = 'DrawerWrapper';
@@ -2032,8 +1998,8 @@ Drawer.propTypes = {
 };
 var Drawer$1 = /*#__PURE__*/React.memo(Drawer);
 
-var _templateObject$4;
-var InputField$1 = styled__default['default'].input(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers.text, composers.box, function (_ref) {
+var _templateObject$5;
+var InputField$1 = styled__default['default'].input(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  ", "\n"])), composers.text, composers.box, function (_ref) {
   var theme = _ref.theme;
   return "\n    &:focus {\n      border-color:".concat(theme.colors.blue[5], ";\n      background:").concat(theme.colors.blue[0], ";\n    }\n    &:active {\n      border-color:").concat(theme.colors.blue[5], ";\n    }\n    &:disabled {\n      border-color:").concat(theme.colors.gray[4], ";\n      background:").concat(theme.colors.gray[0], ";\n    }\n  ");
 });
@@ -2047,6 +2013,40 @@ InputField$1.defaultProps = {
   fontSize: 2,
   height: '40px',
   width: '100%'
+};
+
+var _templateObject$4;
+
+var ellipsis = function ellipsis(props) {
+  return props.ellipsis && "\n    display: -webkit-box;\n    overflow: hidden;\n    -webkit-box-orient: vertical;\n    -webkit-line-clamp: ".concat(props.ellipsis, ";\n  ");
+};
+
+var Text = styled__default['default'].span.attrs(function (props) {
+  var isTitle = props.textStyle.includes('title');
+  if (props.link) return {
+    as: 'a',
+    textDecoration: 'none',
+    fontFamily: isTitle ? props.theme.fonts.title : props.theme.fonts.normal
+  };
+
+  if (isTitle) {
+    return {
+      fontFamily: props.theme.fonts.title
+    };
+  }
+
+  return {
+    fontFamily: props.theme.fonts.normal
+  };
+})(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.textStyle, styledSystem.variant({
+  prop: 'link',
+  scale: 'linkStyles'
+}), composers.text, composers.box);
+Text.defaultProps = {
+  textStyle: 'p.default',
+  width: 'fit-content',
+  transition: 'all 0.2s ease-in',
+  lineHeight: 'default'
 };
 
 var InputField = function InputField(_ref) {
@@ -2186,7 +2186,7 @@ Toggle.defaultProps = {
   disabled: false
 };
 var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n  ", "\n"])), composers.box, function (props) {
-  return props.disabled ? "\n     border-color: ".concat(props.theme.colors.gray[1], ";\n  ") : "\n     border-color: ".concat(props.theme.colors.borderColor, ";\n  ");
+  return props.disabled ? "\n     border-color: ".concat(props.theme.colors.gray[2], ";\n  ") : "\n     border-color: ".concat(props.theme.colors.borderColor, ";\n  ");
 });
 CheckBoxWrapper.defaultProps = {
   borderStyle: 'solid',
@@ -2196,6 +2196,7 @@ CheckBoxWrapper.defaultProps = {
   position: 'relative',
   width: '46px',
   maxWidth: '46px',
+  height: '26px',
   m: 2
 };
 var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  cursor: ", ";\n  &::after {\n    z-index: 10;\n    content: '';\n    display: block;\n    border-radius: 50%;\n    width: 18px;\n    height: 18px;\n    margin: 3px;\n    background: ", ";\n    box-shadow: ", ";\n    transition: all 0.2s ease-in;\n  }\n  ", "\n"])), function (props) {
@@ -2203,14 +2204,14 @@ var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templ
 }, function (props) {
   return props.disabled ? props.theme.colors.gray[4] : props.theme.colors.gray[6];
 }, function (props) {
-  return props.disabled ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)' : '1px 3px 3px 1px rgba(0, 0, 0, 0.2)';
+  return props.disabled ? '1px 1px 1px 1px rgba(0, 0, 0, 0.1)' : '1px 2px 2px 1px rgba(0, 0, 0, 0.2)';
 }, composers.box);
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
   top: '-1px',
-  left: 0,
-  width: '43px',
-  height: '25px',
+  left: '-1px',
+  width: '44px',
+  height: '24px',
   borderRadius: '15px',
   bg: 'gray.3'
 };

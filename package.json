@@ -1,6 +1,6 @@
 {
   "name": "@andeeplus/basic-tools",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "index.js",
   "files": [
     "index.min.js"

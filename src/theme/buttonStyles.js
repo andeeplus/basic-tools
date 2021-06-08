@@ -1,4 +1,4 @@
-import { minWidth, variant } from 'styled-system';
+import { variant } from 'styled-system';
 import baseTheme from './baseTheme';
 import themeColors from './themeColors';
 
@@ -168,20 +168,20 @@ export const buttonShape = {
       fontSize: baseTheme.fontSizes[1],
       lineHeight: baseTheme.fontSizes[1],
       borderRadius: baseTheme.radii[1],
-      padding: `0 4px`
+      padding: `0 16px`
     },
     md: {
       height: '40px',
       fontSize: baseTheme.fontSizes[2],
       borderRadius: baseTheme.radii[1],
-      padding: '0 16px'
+      padding: '0 20px'
     },
     lg: {
       height: '48px',
       fontSize: baseTheme.fontSizes[3],
       lineHeight: baseTheme.fontSizes[3],
       borderRadius: baseTheme.radii[2],
-      padding: `0 32px`
+      padding: `0 24px`
     }
   },
   circle: {
@@ -254,9 +254,9 @@ export const buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
-        width: '40px',
-        height: '40px',
-        minWidth: '40px'
+        width: '32px',
+        height: '32px',
+        minWidth: '32px'
       }
     }
   }

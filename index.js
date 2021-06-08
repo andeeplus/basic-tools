@@ -1546,10 +1546,10 @@ var Text = styled__default['default'].span.attrs(function (props) {
   return {
     fontFamily: props.theme.fonts.normal
   };
-})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", ";\n  ", ";\n  ", "\n  ", "\n"])), composers.box, composers.text, ellipsis, styledSystem.textStyle, styledSystem.variant({
+})(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteral(["\n  ", ";\n  ", "\n  ", "\n  ", ";\n  ", ";\n"])), ellipsis, styledSystem.textStyle, styledSystem.variant({
   prop: 'link',
   scale: 'linkStyles'
-}));
+}), composers.text, composers.box);
 Text.defaultProps = {
   textStyle: 'p.default',
   width: 'fit-content',
@@ -1772,20 +1772,20 @@ var buttonShape = {
       fontSize: baseTheme.fontSizes[1],
       lineHeight: baseTheme.fontSizes[1],
       borderRadius: baseTheme.radii[1],
-      padding: "0 4px"
+      padding: "0 16px"
     },
     md: {
       height: '40px',
       fontSize: baseTheme.fontSizes[2],
       borderRadius: baseTheme.radii[1],
-      padding: '0 16px'
+      padding: '0 20px'
     },
     lg: {
       height: '48px',
       fontSize: baseTheme.fontSizes[3],
-      lineHeight: baseTheme.fontSizes[6],
+      lineHeight: baseTheme.fontSizes[3],
       borderRadius: baseTheme.radii[2],
-      padding: "0 32px"
+      padding: "0 24px"
     }
   },
   circle: {
@@ -1796,8 +1796,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
-        width: '24px',
-        height: '24px'
+        width: '20px',
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -1807,8 +1808,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
-        width: '32px',
-        height: '32px'
+        width: '24px',
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -1818,8 +1820,9 @@ var buttonShape = {
       borderRadius: '50%',
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
-        width: '40px',
-        height: '40px'
+        width: '32px',
+        height: '32px',
+        minWidth: '32px'
       }
     }
   },
@@ -1831,8 +1834,9 @@ var buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[1],
       '& svg': {
-        width: '24px',
-        height: '24px'
+        width: '20px',
+        height: '20px',
+        minWidth: '20px'
       }
     },
     md: {
@@ -1842,8 +1846,9 @@ var buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[2],
       '& svg': {
-        width: '32px',
-        height: '32px'
+        width: '24px',
+        height: '24px',
+        minWidth: '24px'
       }
     },
     lg: {
@@ -1853,8 +1858,9 @@ var buttonShape = {
       borderRadius: baseTheme.radii[1],
       fontSize: baseTheme.fontSizes[3],
       '& svg': {
-        width: '40px',
-        height: '40px'
+        width: '32px',
+        height: '32px',
+        minWidth: '32px'
       }
     }
   }
@@ -1898,9 +1904,7 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       icon: icon,
       fill: "gray.0"
     });
-    return /*#__PURE__*/React__default['default'].createElement(Text, {
-      variant: "p"
-    }, children);
+    return children;
   }, [children, icon, loading]);
   return /*#__PURE__*/React__default['default'].createElement(InnerButton, _extends({
     as: as,
@@ -2185,7 +2189,8 @@ var CheckBoxWrapper = styled__default['default'].div(_templateObject$2 || (_temp
   return props.disabled ? "\n     border-color: ".concat(props.theme.colors.gray[1], ";\n  ") : "\n     border-color: ".concat(props.theme.colors.borderColor, ";\n  ");
 });
 CheckBoxWrapper.defaultProps = {
-  border: '2px solid',
+  borderStyle: 'solid',
+  borderWidth: '2px',
   borderColor: 'gray.3',
   borderRadius: '15px',
   position: 'relative',
@@ -2202,10 +2207,10 @@ var CheckBoxLabel = styled__default['default'].label(_templateObject2 || (_templ
 }, composers.box);
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
-  top: 0,
+  top: '-1px',
   left: 0,
-  width: '42px',
-  height: '24px',
+  width: '43px',
+  height: '25px',
   borderRadius: '15px',
   bg: 'gray.3'
 };

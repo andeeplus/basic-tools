@@ -38,4 +38,17 @@ describe('Text Component', () => {
       margin-top: -2px;
     `);
   });
+
+  it('is possible to override variant values', () => {
+    renderWithTheme(
+      <Text textStyle="title.lg" fontSize={5} fontWeight="light">
+        {largeText}
+      </Text>
+    );
+
+    expect(screen.getByText(largeText)).toHaveStyle(`
+       font-size: ${theme.fontSizes[5]};
+       font-weight: 100;
+    `);
+  });
 });

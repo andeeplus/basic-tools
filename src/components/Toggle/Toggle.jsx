@@ -41,7 +41,8 @@ const CheckBoxWrapper = styled.div`
 `;
 
 CheckBoxWrapper.defaultProps = {
-  border: '2px solid',
+  borderStyle: 'solid',
+  borderWidth: '2px',
   borderColor: 'gray.3',
   borderRadius: '15px',
   position: 'relative',
@@ -73,10 +74,10 @@ const CheckBoxLabel = styled.label`
 
 CheckBoxLabel.defaultProps = {
   position: 'absolute',
-  top: 0,
+  top: '-1px',
   left: 0,
-  width: '42px',
-  height: '24px',
+  width: '43px',
+  height: '25px',
   borderRadius: '15px',
   bg: 'gray.3'
 };

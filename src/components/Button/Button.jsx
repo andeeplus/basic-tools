@@ -10,7 +10,7 @@ const Button = forwardRef(
     const buttonContent = useMemo(() => {
       if (loading) return <Spinner size={18} color="gray.2" />;
       if (icon) return <Icon icon={icon} fill="gray.0" />;
-      return <Text variant="p">{children}</Text>;
+      return children;
     }, [children, icon, loading]);
 
     return (
